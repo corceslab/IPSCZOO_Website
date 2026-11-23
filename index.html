@@ -93,7 +93,11 @@ header { background: var(--surface-1); border-top: 4px solid var(--accent); bord
 }
 .meta { display: flex; gap: 18px; flex-wrap: wrap; color: var(--text-muted); font-size: 13px; }
 .meta b { color: var(--text-primary); font-weight: 600; }
-nav { display: flex; gap: 2px; }
+nav { display: flex; gap: 2px; align-items: stretch; }
+nav button[data-tab="gene"], nav button[data-tab="protocol"] {
+  background: var(--surface-2, #f1f1f0); border-radius: 5px 5px 0 0; font-weight: 600;
+}
+nav button[data-tab="plib"] { margin-left: 10px; }
 nav button {
   background: none; border: 0; border-bottom: 2px solid transparent; padding: 10px 14px;
   font: inherit; color: var(--text-secondary); cursor: pointer;
@@ -396,7 +400,7 @@ ul.tight li:last-child { margin-bottom: 0; }
     { sel: "#q", title: "Start with a gene",
       text: "Type a gene name here. You can add more than one to compare them." },
     { sel: 'nav[role="tablist"]', title: "Four views",
-      text: "The same gene by cell type or by differentiation protocol, plus the protocol list and every sample." },
+      text: "Expression by cell type or by differentiation protocol, plus the protocol list and every sample." },
     { sel: "#chart", title: "Reading the plot",
       text: "One bar per group. Values are TPM from bulk RNA-seq, so compare across samples, not between genes." },
     { sel: "#dlGene", title: "Take the numbers with you",
@@ -489,8 +493,8 @@ ul.tight li:last-child { margin-bottom: 0; }
     </div>
     <div class="subbar">
       <nav role="tablist">
-        <button role="tab" aria-selected="true" data-tab="gene">Gene / cell type lookup</button>
-        <button role="tab" aria-selected="false" data-tab="protocol">Gene / protocol lookup</button>
+        <button role="tab" aria-selected="true" data-tab="gene">Expression by Cell Type</button>
+        <button role="tab" aria-selected="false" data-tab="protocol">Expression by Protocol</button>
         <button role="tab" aria-selected="false" data-tab="plib">Protocols</button>
         <button role="tab" aria-selected="false" data-tab="samples">Samples</button>
         <button role="tab" aria-selected="false" data-tab="about">About the data</button>
@@ -930,7 +934,7 @@ function showGene(name, missing) {
     <div class="card">
       <h2>Expression by cell type</h2>
       <div class="chartwrap" id="chart"></div>
-      <div class="legend"><span><span class="mk"></span>Cell-type mean</span><span>Gray = control cell line</span><label style="margin-left:auto;display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="logToggle" ${logScale ? "checked" : ""}> Log scale</label></div>
+      <div class="legend"><span><span class="mk"></span>Cell-type mean</span><label style="margin-left:auto;display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="logToggle" ${logScale ? "checked" : ""}> Log scale</label></div>
     </div>
     <div class="card side">
       <h2>${esc(g.gene)} by protocol, line and lab</h2>
@@ -967,7 +971,7 @@ function drawChart(order, groups) {
   order.forEach((c, k) => { if (k % 2 === 0) s += `<rect class="colbg" x="${m.l + band * k + 2}" y="${m.t}" width="${band - 4}" height="${ih}" rx="6" opacity=".55"/>`; });
   ticks.forEach((t) => { s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/><text class="muted" x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${logScale ? t.toLocaleString() : tickFmt(t)}</text>`; });
   s += `<line class="baseline" x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}"/>`;
-  s += `<text class="muted" transform="translate(13 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle">${logScale ? "TPM (log scale)" : "TPM"}</text>`;
+  s += `<text class="muted" transform="translate(13 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle">${logScale ? "log10(TPM + 1)" : "TPM"}</text>`;
   const marks = [];
   order.forEach((c, k) => {
     const cx = m.l + band * (k + 0.5), g = groups[c];
@@ -1139,8 +1143,8 @@ function drawProtocolChart(bars) {
   const el = $("pchart");
   if (!bars.length) { el.innerHTML = `<p class="hint">Nothing to show for the chosen cell types and protocol types.</p>`; return; }
   const maxLab = Math.max(...bars.map((b) => Math.min(protoName(b.prot).length, 18)), 3);
-  const m = { t: 14, r: 10, b: Math.round(Math.min(170, 56 + maxLab * 5.6)), l: 56 };
-  const minBar = 42;
+  const m = { t: 14, r: 10, b: Math.round(Math.min(200, 52 + maxLab * 6.4)), l: 56 };
+  const minBar = 22;
   const W = Math.max(el.clientWidth || 600, m.l + m.r + bars.length * minBar);
   const H = 380 + m.b, iw = W - m.l - m.r, ih = H - m.t - m.b;
   const tf = (v) => logScaleP ? Math.log10(v + 1) : v;
@@ -1163,7 +1167,7 @@ function drawProtocolChart(bars) {
   });
   ticks.forEach((t) => { s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/><text class="muted" x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${logScaleP ? t.toLocaleString() : tickFmt(t)}</text>`; });
   s += `<line class="baseline" x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}"/>`;
-  s += `<text class="muted" transform="translate(13 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle">${logScaleP ? "TPM (log scale)" : "TPM"}</text>`;
+  s += `<text class="muted" transform="translate(13 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle">${logScaleP ? "log10(TPM + 1)" : "TPM"}</text>`;
   const marks = [];
   bars.forEach((b, k) => {
     const cx = m.l + bw * (k + 0.5), w = Math.min(bw * 0.62, 30);
@@ -1174,7 +1178,8 @@ function drawProtocolChart(bars) {
     });
     const plab = protoName(b.prot), doc = protoDoc(b.prot);
     const short = esc(plab.length > 18 ? plab.slice(0, 17) + "…" : plab);
-    const txt = `<text class="${doc ? "plink" : "muted"}" x="${cx}" y="${H - m.b + 16}" text-anchor="end" transform="rotate(-45 ${cx} ${H - m.b + 16})">${short}${doc ? " ↗" : ""}</text>`;
+    const ly = H - m.b + 14;
+    const txt = `<text class="${doc ? "plink" : "muted"}" x="${cx}" y="${ly}" text-anchor="end" transform="rotate(-90 ${cx} ${ly})">${short}</text>`;
     s += doc ? `<a href="${esc(doc)}" target="_blank" rel="noopener">${txt}</a>` : txt;
     s += `<rect class="phit" data-k="${k}" x="${cx - bw / 2}" y="${m.t}" width="${bw}" height="${ih}" fill="transparent"/>`;
   });
