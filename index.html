@@ -316,6 +316,48 @@ ul.tight li:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
+
+<!-- Simple access gate. Not security: the files in this repository are public and can be
+     read directly. It only keeps the page from being read by someone who stumbles on it. -->
+<div id="gate" style="position:fixed;inset:0;z-index:99999;background:#fff;display:flex;
+     align-items:center;justify-content:center;font-family:system-ui,-apple-system,'Segoe UI',sans-serif">
+  <form id="gate-form" style="max-width:360px;padding:28px 30px;border:1px solid #d8d8d8;border-radius:10px;text-align:center">
+    <h2 style="margin:0 0 6px;font-size:19px;font-weight:600;color:#1d1d1b">iPSC Zoo</h2>
+    <p style="margin:0 0 18px;font-size:13px;line-height:1.5;color:#666">
+      Corces Lab, Gladstone Institutes.<br>Unpublished data &mdash; lab use only.</p>
+    <input id="gate-pw" type="password" autocomplete="current-password" placeholder="Password"
+      style="width:100%;box-sizing:border-box;padding:9px 11px;font-size:14px;border:1px solid #c8c8c8;border-radius:6px">
+    <p id="gate-err" style="margin:9px 0 0;font-size:12px;color:#c0392b;visibility:hidden">Incorrect password</p>
+    <button type="submit" style="margin-top:12px;width:100%;padding:9px;font-size:14px;font-weight:600;
+      color:#fff;background:#1d1d1b;border:0;border-radius:6px;cursor:pointer">Enter</button>
+  </form>
+</div>
+<script>
+(function () {
+  var HASH = "dcf0a6ab9c5bc21b18b9449ac556017608ec07d1dd1ede398cd8df1ef5649ac2", KEY = "zooGate";
+  var gate = document.getElementById("gate");
+  function open_() { gate.remove(); document.documentElement.style.overflow = ""; }
+  document.documentElement.style.overflow = "hidden";
+  try { if (sessionStorage.getItem(KEY) === HASH) { open_(); return; } } catch (e) {}
+  async function sha256(s) {
+    var b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+    return Array.from(new Uint8Array(b)).map(function (x) { return x.toString(16).padStart(2, "0"); }).join("");
+  }
+  document.getElementById("gate-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    var v = document.getElementById("gate-pw").value;
+    if (await sha256(v) === HASH) {
+      try { sessionStorage.setItem(KEY, HASH); } catch (e2) {}
+      open_();
+    } else {
+      document.getElementById("gate-err").style.visibility = "visible";
+      document.getElementById("gate-pw").select();
+    }
+  });
+  document.getElementById("gate-pw").focus();
+})();
+</script>
+
 <header>
   <div class="wrap">
     <div class="top">
