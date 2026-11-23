@@ -93,6 +93,13 @@ header { background: var(--surface-1); border-top: 4px solid var(--accent); bord
 }
 .meta { display: flex; gap: 18px; flex-wrap: wrap; color: var(--text-muted); font-size: 13px; }
 .meta b { color: var(--text-primary); font-weight: 600; }
+/* lab logo: the artwork is drawn for a white background, so it sits on a white
+   chip. In the light theme the chip is invisible; in dark it reads as a card. */
+.lablogo { display: inline-flex; background: #fff; padding: 5px 9px; border-radius: 6px; line-height: 0; }
+.lablogo img { display: block; height: 26px; width: auto; }
+#footer { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+#footer .lablogo img { height: 42px; }
+@media (max-width: 560px) { .lablogo img { height: 22px; } #footer .lablogo img { height: 34px; } }
 nav { display: flex; gap: 2px; align-items: stretch; }
 nav button[data-tab="gene"], nav button[data-tab="protocol"] {
   background: var(--surface-2, #f1f1f0); border-radius: 5px 5px 0 0; font-weight: 600;
@@ -476,7 +483,9 @@ ul.tight li:last-child { margin-bottom: 0; }
     <div class="top">
       <div class="brand"><svg class="logo" viewBox="0 0 63 63" width="66" height="66" role="img" aria-label="iPSC Zoo: an iPSC surrounded by iPSC-derived cell types"><g transform="translate(31.5 10.0) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -3.0 -2.3 C -1.2 -4.2, 1.6 -4.4, 3.4 -2.4 C 4.8 -0.8, 4.4 2.2, 2.4 3.3 C 0.4 4.4, -2.6 3.8, -3.8 1.8 C -4.6 0.4, -4.2 -1.2, -3.0 -2.3 Z" fill="var(--ct-iNEx)"/><path d="M 0.6 -4.0 L 1.4 -7.4 M 1.4 -7.4 L -0.8 -9.4 M 1.4 -7.4 L 4.0 -9.0 M 3.8 -1.6 L 7.2 -3.0 M 7.2 -3.0 L 9.4 -1.6 M 7.2 -3.0 L 8.8 -5.6 M -4.0 0.2 L -7.4 -0.9 M -7.4 -0.9 L -9.4 0.9 M -7.4 -0.9 L -9.0 -3.4 M 0.0 3.9 L 1.2 9.4" stroke="var(--ct-iNEx)" stroke-width="1.55" fill="none" stroke-linecap="round"/><circle cx="-0.2" cy="0.4" r="2.0" fill="#fff"/></g><g transform="translate(46.7 16.3) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="3.9" fill="var(--ct-iMGL)"/><path d="M 2.9 0.3 L 7.4 0.8 M 7.4 0.8 L 9.4 -0.3 M 7.4 0.8 L 9.1 2.3 M 2.4 1.6 L 6.2 4.1 M 6.2 4.1 L 8.5 4.1 M 6.2 4.1 L 7.0 6.2 M 1.4 2.6 L 3.5 6.5 M 3.5 6.5 L 5.6 7.6 M 3.5 6.5 L 3.3 8.8 M 0.0 2.9 L 0.1 7.4 M 0.1 7.4 L 1.4 9.3 M 0.1 7.4 L -1.1 9.3 M -1.3 2.6 L -3.3 6.6 M -3.3 6.6 L -3.0 8.9 M -3.3 6.6 L -5.3 7.7 M -2.4 1.7 L -6.0 4.3 M -6.0 4.3 L -6.8 6.5 M -6.0 4.3 L -8.3 4.4 M -2.9 0.4 L -7.3 1.0 M -7.3 1.0 L -9.0 2.5 M -7.3 1.0 L -9.4 -0.0 M -2.8 -1.0 L -7.0 -2.5 M -7.0 -2.5 L -9.2 -1.9 M -7.0 -2.5 L -8.3 -4.4 M -2.0 -2.2 L -5.0 -5.5 M -5.0 -5.5 L -7.2 -6.0 M -5.0 -5.5 L -5.3 -7.7 M -0.7 -2.8 L -1.9 -7.2 M -1.9 -7.2 L -3.6 -8.7 M -1.9 -7.2 L -1.1 -9.3 M 0.7 -2.9 L 1.7 -7.2 M 1.7 -7.2 L 0.8 -9.4 M 1.7 -7.2 L 3.3 -8.8 M 1.9 -2.2 L 4.8 -5.6 M 4.8 -5.6 L 5.1 -7.9 M 4.8 -5.6 L 7.0 -6.2 M 2.7 -1.1 L 6.9 -2.7 M 6.9 -2.7 L 8.2 -4.6 M 6.9 -2.7 L 9.1 -2.2" stroke="var(--ct-iMGL)" stroke-width="1.25" fill="none" stroke-linecap="round"/><circle cx="0" cy="0" r="1.9" fill="#fff"/></g><g transform="translate(53.0 31.5) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="4.2" fill="var(--ct-iAstro)"/><path d="M 3.1 -0.7 L 7.0 -1.5 M 7.0 -1.5 L 8.5 -3.3 M 7.0 -1.5 L 9.1 -0.4 M 2.4 2.0 L 5.6 4.6 M 5.6 4.6 L 7.9 4.5 M 5.6 4.6 L 6.0 6.8 M -0.0 3.1 L -0.1 7.2 M -0.1 7.2 L 1.3 9.0 M -0.1 7.2 L -1.6 8.9 M -2.5 1.9 L -5.7 4.4 M -5.7 4.4 L -6.2 6.7 M -5.7 4.4 L -8.0 4.3 M -3.1 -0.7 L -7.0 -1.7 M -7.0 -1.7 L -9.1 -0.7 M -7.0 -1.7 L -8.4 -3.6 M -1.3 -2.9 L -3.0 -6.5 M -3.0 -6.5 L -5.1 -7.5 M -3.0 -6.5 L -2.4 -8.8 M 1.4 -2.8 L 3.2 -6.4 M 3.2 -6.4 L 2.7 -8.7 M 3.2 -6.4 L 5.3 -7.4" stroke="var(--ct-iAstro)" stroke-width="1.9" fill="none" stroke-linecap="round"/><circle cx="0" cy="0" r="2.0" fill="#fff"/></g><g transform="translate(46.7 46.7) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="6.6" fill="var(--ct-iHPC)"/><circle cx="-0.8" cy="-0.6" r="2.0" fill="#fff"/></g><g transform="translate(31.5 53.0) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="-0.4" cy="3.2" rx="5.2" ry="4.4" fill="var(--ct-iOL)"/><path d="M -2.1 0.6 L -4.2 -4.4" stroke="var(--ct-iOL)" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="-4.2" cy="-6.6" rx="1.9" ry="2.6" transform="rotate(-14 -4.2 -6.6)" fill="var(--ct-iOL)"/><path d="M 0.0 0.6 L 0.0 -4.4" stroke="var(--ct-iOL)" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="0.0" cy="-6.6" rx="1.9" ry="2.6" transform="rotate(0 0.0 -6.6)" fill="var(--ct-iOL)"/><path d="M 2.1 0.6 L 4.2 -4.4" stroke="var(--ct-iOL)" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="4.2" cy="-6.6" rx="1.9" ry="2.6" transform="rotate(14 4.2 -6.6)" fill="var(--ct-iOL)"/><circle cx="-0.4" cy="3.2" r="2.0" fill="#fff"/></g><g transform="translate(16.3 46.7) rotate(225)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -9.2 1.6 C -5.6 -1.0, -2.0 -2.6, 0.6 -2.6 C 3.4 -2.6, 6.4 -3.2, 9.2 -4.0 C 6.2 -0.6, 3.2 1.4, 0.4 2.0 C -2.4 2.6, -5.8 2.6, -9.2 1.6 Z" fill="var(--ct-iNPC)"/><circle cx="0.2" cy="-0.3" r="1.9" fill="#fff"/></g><g transform="translate(10.0 31.5) rotate(270)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -8.8 1.6 C -4.6 -5.0, 3.6 -5.4, 8.8 -2.0 C 7.2 0.4, 3.0 2.0, -1.0 2.2 C -4.0 2.3, -6.8 2.1, -8.8 1.6 Z" fill="var(--ct-iEC)"/><path d="M -8.8 1.6 C -5.6 3.9, 2.2 4.8, 8.4 2.4 C 8.6 1.8, 8.7 1.2, 8.8 -0.6 C 4.0 1.6, -3.0 2.5, -8.8 1.6 Z" fill="#E8454F"/><circle cx="-3.0" cy="-0.8" r="2.0" fill="#fff"/></g><g transform="translate(16.3 16.3) rotate(315)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -8.6 3.4 C -4.0 0.2, -1.0 -4.0, 1.0 -8.0 C 2.6 -4.4, 5.0 -0.6, 8.6 2.6 C 4.0 4.8, -3.4 5.0, -8.6 3.4 Z" fill="var(--ct-Fib)"/><circle cx="0.4" cy="0.8" r="2.0" fill="#fff"/></g><g transform="translate(31.5 31.5)" stroke="#1d1d1b" stroke-width="1.05" stroke-linejoin="round"><path d="M 0 -8.8 C 4.0 -8.8, 7.4 -6.4, 8.4 -2.8 C 9.2 0.6, 8.0 4.4, 5.0 6.6 C 2.2 8.6, -2.2 8.8, -5.0 6.8 C -8.0 4.6, -9.2 0.8, -8.4 -2.6 C -7.5 -6.2, -4.0 -8.8, 0 -8.8 Z" fill="var(--ct-iPSC)"/><circle cx="-0.6" cy="-0.4" r="2.3" fill="#fff"/></g></svg>
         <h1><a href="#">iPSC Zoo</a></h1>
-        <p>Bulk RNA-seq of iPSC-derived cell types · Corces Lab, Gladstone Institutes</p>
+        <p>Bulk RNA-seq of iPSC-derived cell types</p>
+        <span class="lablogo"><img src="assets/CorcesLab_Horizontal_noSubtext_WhiteBackground.png"
+          alt="Corces Lab, Gladstone Institutes" height="26"></span>
       </div>
       <div class="topsearch">
         <div class="search">
@@ -618,7 +627,11 @@ ul.tight li:last-child { margin-bottom: 0; }
   </section>
 </main>
 <div id="linepanel" hidden><div class="linecard"><button id="lineclose" type="button" aria-label="Close">×</button><div id="linebody"></div></div></div>
-<footer class="wrap" id="footer">iPSC Zoo · Corces Lab, Gladstone Institutes</footer>
+<footer class="wrap" id="footer">
+  <span class="lablogo"><img src="assets/CorcesLab_Horizontal_withSubtext_WhiteBackground.png"
+    alt="Corces Lab for neuro-epigenomics, Gladstone Institutes" height="42"></span>
+  <span id="footer-text">iPSC Zoo · Corces Lab, Gladstone Institutes</span>
+</footer>
 <div class="tip" id="tip" role="tooltip"></div>
 <script src="config.js"></script>
 <script src="data/core.js"></script>
@@ -1376,7 +1389,7 @@ $("cite").innerHTML = (PUBLIC && CFG.citation
     : `<p>Unpublished data, shared with lab members only. Please do not share the site or the data outside the lab. Citation details will be added at publication.</p>`) +
   `<p><a href="data/iPSCZoo_RNA_TPM.csv.gz" download>Download the full expression table</a> (TPM, genes × samples, CSV, gzip)${CFG.dataUrl ? ` · <a href="${esc(CFG.dataUrl)}" target="_blank" rel="noopener">Raw data</a>` : ""}.</p>` +
   (CFG.contact ? `<p>Questions: <a href="mailto:${esc(CFG.contact)}">${esc(CFG.contact)}</a></p>` : "");
-$("footer").textContent = `iPSC Zoo · Corces Lab, Gladstone Institutes · data version ${Z.built}` + (PUBLIC ? "" : " · unpublished, lab only");
+$("footer-text").textContent = `iPSC Zoo · Corces Lab, Gladstone Institutes · data version ${Z.built}` + (PUBLIC ? "" : " · unpublished, lab only");
 
 
 
