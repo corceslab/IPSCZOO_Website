@@ -358,6 +358,48 @@ ul.tight li:last-child { margin-bottom: 0; }
 })();
 </script>
 
+<!-- First-visit quick guide. Shows once per browser, skippable, reopen with the ? button. -->
+<div id="guide" hidden style="position:fixed;inset:0;z-index:99998;background:rgba(29,29,27,.45);
+     display:flex;align-items:center;justify-content:center;padding:20px;
+     font-family:system-ui,-apple-system,'Segoe UI',sans-serif">
+  <div style="max-width:430px;background:#fff;border-radius:10px;padding:26px 28px">
+    <h2 style="margin:0 0 4px;font-size:18px;font-weight:600;color:#1d1d1b">Quick guide</h2>
+    <p style="margin:0 0 16px;font-size:12.5px;color:#777">Bulk RNA-seq of iPSC-derived cell types, 182 samples.</p>
+    <ul style="margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.5;color:#333">
+      <li style="margin-bottom:9px"><b>Gene / cell type lookup</b> &mdash; type a gene, see its expression across cell types.</li>
+      <li style="margin-bottom:9px"><b>Gene / protocol lookup</b> &mdash; the same gene split by differentiation protocol.</li>
+      <li style="margin-bottom:9px"><b>Protocols</b> &mdash; what each protocol ID is, with paper links.</li>
+      <li style="margin-bottom:9px"><b>Samples</b> &mdash; every sample and its metadata.</li>
+      <li>Values are TPM. Any view can be downloaded as CSV.</li>
+    </ul>
+    <p style="margin:16px 0 0;font-size:12px;color:#777">Unpublished data &mdash; lab use only.</p>
+    <div style="margin-top:18px;display:flex;gap:9px;justify-content:flex-end">
+      <button id="guide-skip" style="padding:8px 14px;font-size:13px;color:#555;background:#fff;
+        border:1px solid #d0d0d0;border-radius:6px;cursor:pointer">Skip</button>
+      <button id="guide-ok" style="padding:8px 16px;font-size:13px;font-weight:600;color:#fff;
+        background:#1d1d1b;border:0;border-radius:6px;cursor:pointer">Got it</button>
+    </div>
+  </div>
+</div>
+<button id="guide-open" title="Quick guide" style="position:fixed;right:16px;bottom:16px;z-index:9000;
+  width:32px;height:32px;border-radius:50%;border:1px solid #d0d0d0;background:#fff;color:#555;
+  font-size:15px;line-height:1;cursor:pointer">?</button>
+<script>
+(function () {
+  var KEY = "zooGuideSeen", g = document.getElementById("guide");
+  function show() { g.hidden = false; }
+  function hide() { g.hidden = true; try { localStorage.setItem(KEY, "1"); } catch (e) {} }
+  var seen = false;
+  try { seen = localStorage.getItem(KEY) === "1"; } catch (e) {}
+  if (!seen) show();
+  document.getElementById("guide-ok").addEventListener("click", hide);
+  document.getElementById("guide-skip").addEventListener("click", hide);
+  document.getElementById("guide-open").addEventListener("click", show);
+  g.addEventListener("click", function (e) { if (e.target === g) hide(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !g.hidden) hide(); });
+})();
+</script>
+
 <header>
   <div class="wrap">
     <div class="top">
