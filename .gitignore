@@ -1,0 +1,15 @@
+# packaged copies and archives (the repo root IS the site)
+site/
+*.zip
+
+# editor backups
+.backup_*
+
+# raw inputs and files the site does not load
+data/rna/
+data/genes.json
+data/promoter_signal.json
+data/samples.json
+protocols/
+
+.DS_Store

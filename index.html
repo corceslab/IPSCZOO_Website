@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iPSC Zoo</title>
+<meta name="description" content="Gene expression across iPSC-derived brain cell types, differentiation protocols, iPSC lines and labs (iPSC Zoo, Corces Lab, Gladstone Institutes).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 63 63'%3E%3Cg transform='translate(31.5 10.0) rotate(0)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M -3.0 -2.3 C -1.2 -4.2, 1.6 -4.4, 3.4 -2.4 C 4.8 -0.8, 4.4 2.2, 2.4 3.3 C 0.4 4.4, -2.6 3.8, -3.8 1.8 C -4.6 0.4, -4.2 -1.2, -3.0 -2.3 Z' fill='%2300B26E'/%3E%3Cpath d='M 0.6 -4.0 L 1.4 -7.4 M 1.4 -7.4 L -0.8 -9.4 M 1.4 -7.4 L 4.0 -9.0 M 3.8 -1.6 L 7.2 -3.0 M 7.2 -3.0 L 9.4 -1.6 M 7.2 -3.0 L 8.8 -5.6 M -4.0 0.2 L -7.4 -0.9 M -7.4 -0.9 L -9.4 0.9 M -7.4 -0.9 L -9.0 -3.4 M 0.0 3.9 L 1.2 9.4' stroke='%2300B26E' stroke-width='1.55' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='-0.2' cy='0.4' r='2.0' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(46.7 16.3) rotate(0)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Ccircle cx='0' cy='0' r='3.9' fill='%2350ADF9'/%3E%3Cpath d='M 2.9 0.3 L 7.4 0.8 M 7.4 0.8 L 9.4 -0.3 M 7.4 0.8 L 9.1 2.3 M 2.4 1.6 L 6.2 4.1 M 6.2 4.1 L 8.5 4.1 M 6.2 4.1 L 7.0 6.2 M 1.4 2.6 L 3.5 6.5 M 3.5 6.5 L 5.6 7.6 M 3.5 6.5 L 3.3 8.8 M 0.0 2.9 L 0.1 7.4 M 0.1 7.4 L 1.4 9.3 M 0.1 7.4 L -1.1 9.3 M -1.3 2.6 L -3.3 6.6 M -3.3 6.6 L -3.0 8.9 M -3.3 6.6 L -5.3 7.7 M -2.4 1.7 L -6.0 4.3 M -6.0 4.3 L -6.8 6.5 M -6.0 4.3 L -8.3 4.4 M -2.9 0.4 L -7.3 1.0 M -7.3 1.0 L -9.0 2.5 M -7.3 1.0 L -9.4 -0.0 M -2.8 -1.0 L -7.0 -2.5 M -7.0 -2.5 L -9.2 -1.9 M -7.0 -2.5 L -8.3 -4.4 M -2.0 -2.2 L -5.0 -5.5 M -5.0 -5.5 L -7.2 -6.0 M -5.0 -5.5 L -5.3 -7.7 M -0.7 -2.8 L -1.9 -7.2 M -1.9 -7.2 L -3.6 -8.7 M -1.9 -7.2 L -1.1 -9.3 M 0.7 -2.9 L 1.7 -7.2 M 1.7 -7.2 L 0.8 -9.4 M 1.7 -7.2 L 3.3 -8.8 M 1.9 -2.2 L 4.8 -5.6 M 4.8 -5.6 L 5.1 -7.9 M 4.8 -5.6 L 7.0 -6.2 M 2.7 -1.1 L 6.9 -2.7 M 6.9 -2.7 L 8.2 -4.6 M 6.9 -2.7 L 9.1 -2.2' stroke='%2350ADF9' stroke-width='1.25' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='0' cy='0' r='1.9' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(53.0 31.5) rotate(0)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Ccircle cx='0' cy='0' r='4.2' fill='%23F2525D'/%3E%3Cpath d='M 3.1 -0.7 L 7.0 -1.5 M 7.0 -1.5 L 8.5 -3.3 M 7.0 -1.5 L 9.1 -0.4 M 2.4 2.0 L 5.6 4.6 M 5.6 4.6 L 7.9 4.5 M 5.6 4.6 L 6.0 6.8 M -0.0 3.1 L -0.1 7.2 M -0.1 7.2 L 1.3 9.0 M -0.1 7.2 L -1.6 8.9 M -2.5 1.9 L -5.7 4.4 M -5.7 4.4 L -6.2 6.7 M -5.7 4.4 L -8.0 4.3 M -3.1 -0.7 L -7.0 -1.7 M -7.0 -1.7 L -9.1 -0.7 M -7.0 -1.7 L -8.4 -3.6 M -1.3 -2.9 L -3.0 -6.5 M -3.0 -6.5 L -5.1 -7.5 M -3.0 -6.5 L -2.4 -8.8 M 1.4 -2.8 L 3.2 -6.4 M 3.2 -6.4 L 2.7 -8.7 M 3.2 -6.4 L 5.3 -7.4' stroke='%23F2525D' stroke-width='1.9' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='0' cy='0' r='2.0' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(46.7 46.7) rotate(0)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Ccircle cx='0' cy='0' r='6.6' fill='%230DD0DE'/%3E%3Ccircle cx='-0.8' cy='-0.6' r='2.0' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(31.5 53.0) rotate(0)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cellipse cx='-0.4' cy='3.2' rx='5.2' ry='4.4' fill='%23b49bc9'/%3E%3Cpath d='M -2.1 0.6 L -4.2 -4.4' stroke='%23b49bc9' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Cellipse cx='-4.2' cy='-6.6' rx='1.9' ry='2.6' transform='rotate(-14 -4.2 -6.6)' fill='%23b49bc9'/%3E%3Cpath d='M 0.0 0.6 L 0.0 -4.4' stroke='%23b49bc9' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Cellipse cx='0.0' cy='-6.6' rx='1.9' ry='2.6' transform='rotate(0 0.0 -6.6)' fill='%23b49bc9'/%3E%3Cpath d='M 2.1 0.6 L 4.2 -4.4' stroke='%23b49bc9' stroke-width='1.7' stroke-linecap='round' fill='none'/%3E%3Cellipse cx='4.2' cy='-6.6' rx='1.9' ry='2.6' transform='rotate(14 4.2 -6.6)' fill='%23b49bc9'/%3E%3Ccircle cx='-0.4' cy='3.2' r='2.0' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(16.3 46.7) rotate(225)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M -9.2 1.6 C -5.6 -1.0, -2.0 -2.6, 0.6 -2.6 C 3.4 -2.6, 6.4 -3.2, 9.2 -4.0 C 6.2 -0.6, 3.2 1.4, 0.4 2.0 C -2.4 2.6, -5.8 2.6, -9.2 1.6 Z' fill='%23F97E2B'/%3E%3Ccircle cx='0.2' cy='-0.3' r='1.9' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(10.0 31.5) rotate(270)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M -8.8 1.6 C -4.6 -5.0, 3.6 -5.4, 8.8 -2.0 C 7.2 0.4, 3.0 2.0, -1.0 2.2 C -4.0 2.3, -6.8 2.1, -8.8 1.6 Z' fill='%23353D96'/%3E%3Cpath d='M -8.8 1.6 C -5.6 3.9, 2.2 4.8, 8.4 2.4 C 8.6 1.8, 8.7 1.2, 8.8 -0.6 C 4.0 1.6, -3.0 2.5, -8.8 1.6 Z' fill='%23E8454F'/%3E%3Ccircle cx='-3.0' cy='-0.8' r='2.0' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(16.3 16.3) rotate(315)' stroke='%231d1d1b' stroke-width='0.9' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M -8.6 3.4 C -4.0 0.2, -1.0 -4.0, 1.0 -8.0 C 2.6 -4.4, 5.0 -0.6, 8.6 2.6 C 4.0 4.8, -3.4 5.0, -8.6 3.4 Z' fill='%23AD7B5A'/%3E%3Ccircle cx='0.4' cy='0.8' r='2.0' fill='%23fff'/%3E%3C/g%3E%3Cg transform='translate(31.5 31.5)' stroke='%231d1d1b' stroke-width='1.05' stroke-linejoin='round'%3E%3Cpath d='M 0 -8.8 C 4.0 -8.8, 7.4 -6.4, 8.4 -2.8 C 9.2 0.6, 8.0 4.4, 5.0 6.6 C 2.2 8.6, -2.2 8.8, -5.0 6.8 C -8.0 4.6, -9.2 0.8, -8.4 -2.6 C -7.5 -6.2, -4.0 -8.8, 0 -8.8 Z' fill='%23ECCD98'/%3E%3Ccircle cx='-0.6' cy='-0.4' r='2.3' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root {
+  color-scheme: light;
+  --page: #ffffff;
+  --surface-1: #ffffff;
+  --surface-2: #f4f5f7;
+  --border: #d5d8dc;
+  --grid: #e3e5e8;
+  --axis: #b9bdc3;
+  --text-primary: #0b0b0b;
+  --text-secondary: #4a4f55;
+  --text-muted: #6f747a;
+  --accent: #1f5c99;
+  --accent-soft: #e8eef5;
+  --heat: 31, 92, 153;
+  --warn-bg: #fdf3dc;
+  --warn-text: #6b4a00;
+  --shadow: none;
+  /* cell-type identity (fixed per cell type, never by rank) */
+  --ct-iNEx: #00B26E; --ct-iNInh: #A4BF1F; --ct-iNMot: #0D400A; --ct-iN: #1F8E46;
+  --ct-iNPC: #F97E2B; --ct-iAstro: #F2525D; --ct-iMGL: #50ADF9; --ct-iHPC: #0DD0DE;
+  --ct-iOL: #b49bc9; --ct-iEC: #353D96; --ct-Fib: #AD7B5A; --ct-iPSC: #ECCD98;
+  --ct-control: #7A7878;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0f0f0e; --surface-1: #1a1a19; --surface-2: #232321;
+    --border: rgba(255, 255, 255, 0.10); --grid: #2c2c2a; --axis: #383835;
+    --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #8f8e86;
+    --accent: #6fa3d8; --accent-soft: #1c2631; --heat: 111, 163, 216;
+    --warn-bg: #3a2f14; --warn-text: #f2d48a; --shadow: none;
+  --ct-iNEx: #00B26E; --ct-iNInh: #A4BF1F; --ct-iNMot: #3E8F38; --ct-iN: #1F8E46;
+  --ct-iNPC: #F97E2B; --ct-iAstro: #F2525D; --ct-iMGL: #50ADF9; --ct-iHPC: #0DD0DE;
+  --ct-iOL: #b49bc9; --ct-iEC: #6B74D6; --ct-Fib: #AD7B5A; --ct-iPSC: #ECCD98;
+  --ct-control: #9A9896;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0f0f0e; --surface-1: #1a1a19; --surface-2: #232321;
+  --border: rgba(255, 255, 255, 0.10); --grid: #2c2c2a; --axis: #383835;
+  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #8f8e86;
+  --accent: #6fa3d8; --accent-soft: #1c2631; --heat: 111, 163, 216;
+  --warn-bg: #3a2f14; --warn-text: #f2d48a; --shadow: none;
+  --ct-iNEx: #00B26E; --ct-iNInh: #A4BF1F; --ct-iNMot: #3E8F38; --ct-iN: #1F8E46;
+  --ct-iNPC: #F97E2B; --ct-iAstro: #F2525D; --ct-iMGL: #50ADF9; --ct-iHPC: #0DD0DE;
+  --ct-iOL: #b49bc9; --ct-iEC: #6B74D6; --ct-Fib: #AD7B5A; --ct-iPSC: #ECCD98;
+  --ct-control: #9A9896;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--text-primary);
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+.cols { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+.cols.samples { grid-template-columns: minmax(0, 340px) minmax(0, 1fr); }
+.cols > .card { margin-bottom: 0; }
+.side { position: sticky; top: 12px; }
+.side .scroll { max-height: 560px; }
+.topsearch { flex: 1; display: flex; justify-content: center; padding: 0 24px; }
+.topsearch .search { width: 100%; }
+.subbar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: space-between; margin-top: 10px; }
+.pill { font-size: 12px; color: var(--warn-text); font-weight: 600; }
+.gtop { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px 20px; align-items: start; }
+th.sortable { cursor: pointer; user-select: none; }
+th.sortable:hover { color: var(--text-primary); }
+.range { color: var(--text-muted); font-size: 12px; white-space: nowrap; }
+@media (max-width: 1000px) { .cols, .cols.samples, .gtop { grid-template-columns: minmax(0, 1fr); } .side { position: static; } .topsearch { order: 3; flex-basis: 100%; padding: 12px 0 0; } .top { flex-wrap: wrap; } }
+
+/* header */
+header { background: var(--surface-1); border-top: 4px solid var(--accent); border-bottom: 1px solid var(--border); }
+.top { display: flex; align-items: center; gap: 14px; padding-top: 18px; }
+.logo { width: 40px; height: 40px; flex: none; }
+.brand h1 { margin: 0; font-size: 24px; font-weight: 700; line-height: 1.1; }
+.brand h1 a { color: inherit; }
+.brand p { margin: 0; color: var(--text-secondary); font-size: 14px; }
+.spacer { flex: 1; }
+.theme {
+  font: inherit; font-size: 12px; color: var(--text-muted); background: none;
+  border: 0; padding: 4px 0; cursor: pointer; white-space: nowrap; text-decoration: underline;
+}
+.meta { display: flex; gap: 18px; flex-wrap: wrap; color: var(--text-muted); font-size: 13px; }
+.meta b { color: var(--text-primary); font-weight: 600; }
+nav { display: flex; gap: 2px; }
+nav button {
+  background: none; border: 0; border-bottom: 2px solid transparent; padding: 10px 14px;
+  font: inherit; color: var(--text-secondary); cursor: pointer;
+}
+nav button:hover { color: var(--text-primary); }
+nav button[aria-selected="true"] { color: var(--text-primary); border-bottom-color: var(--accent); font-weight: 600; }
+.banner { background: var(--warn-bg); color: var(--warn-text); border-radius: 3px; padding: 8px 12px; font-size: 13px; margin: 16px 0 0; }
+
+main.wrap { padding-top: 18px; padding-bottom: 56px; }
+.side td:nth-child(2) { white-space: nowrap; }
+html, body { overflow-x: hidden; }
+.card {
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 3px;
+  padding: 16px 18px; margin-bottom: 16px;
+}
+.card h2 { font-size: 15px; margin: 0 0 2px; }
+.hint { color: var(--text-secondary); font-size: 13px; margin: 0 0 12px; }
+
+/* search: multi-select combo box */
+.combo {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px; min-height: 44px; cursor: text;
+  padding: 6px 40px 6px 40px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface-2);
+}
+.combo:focus-within { border-color: var(--accent); background: var(--surface-1);  }
+.combo input { flex: 1; min-width: 120px; border: 0 !important; background: none !important; box-shadow: none !important; padding: 4px 2px !important; font-size: 15px; }
+.tok { display: inline-flex; align-items: center; gap: 4px; background: var(--accent-soft); color: var(--text-primary); border-radius: 3px; padding: 2px 4px 2px 8px; font-size: 13px; font-weight: 600; }
+.tok button { font: inherit; border: 0; background: none; color: var(--text-muted); cursor: pointer; padding: 0 4px; font-size: 15px; line-height: 1; }
+.tok button:hover { color: var(--text-primary); }
+.caret { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--text-muted); cursor: pointer; font-size: 14px; padding: 6px; }
+.caret:hover { color: var(--text-primary); }
+.suggest .sec { padding: 8px 14px 4px; font-size: 12px; font-weight: 600; color: var(--text-muted); cursor: default; }
+.suggest .opt { display: flex; align-items: center; gap: 10px; padding: 7px 14px; cursor: pointer; }
+.suggest .opt[aria-selected="true"], .suggest .opt:hover { background: var(--accent-soft); }
+.suggest .ck { width: 16px; height: 16px; border-radius: 4px; border: 1.5px solid var(--axis); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; flex: none; color: #fff; }
+.suggest .opt.on .ck { background: var(--accent); border-color: var(--accent); }
+.suggest .opt .g { font-weight: 600; }
+.suggest .opt .d { color: var(--text-muted); font-size: 12px; margin-left: auto; text-align: right; }
+.suggest .foot { padding: 8px 14px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--grid); margin-top: 4px; cursor: default; }
+/* cell-type toggles */
+.toolbar { display: flex; align-items: center; gap: 8px 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.toolbar .lbl { color: var(--text-muted); font-size: 13px; margin-right: 2px; }
+.tog {
+  font: inherit; font-size: 13px; display: inline-flex; align-items: center; gap: 7px; cursor: pointer;
+  padding: 4px 11px; border-radius: 3px; border: 1px solid var(--border); background: var(--surface-1); color: var(--text-muted);
+}
+.tog .sw { opacity: .35; }
+.tog[aria-pressed="true"] { color: var(--text-primary); border-color: var(--axis); background: var(--surface-1); }
+.tog[aria-pressed="true"] .sw { opacity: 1; }
+.tog:hover { border-color: var(--accent); }
+.quick { font: inherit; font-size: 12px; border: 0; background: none; color: var(--accent); cursor: pointer; padding: 2px 4px; }
+.quick:hover { text-decoration: underline; }
+.sep { width: 1px; height: 20px; background: var(--grid); }
+.search { position: relative; max-width: 620px; }
+.search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; stroke: var(--text-muted); }
+.search input {
+  width: 100%; padding: 10px 14px 10px 42px; font: inherit; font-size: 15px; border-radius: 3px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text-primary); outline: none;
+}
+.search input:focus { border-color: var(--accent); background: var(--surface-1);  }
+.suggest {
+  position: absolute; z-index: 20; left: 0; right: 0; top: 100%; margin: 4px 0 0; padding: 4px 0;
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 3px; box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  display: none; max-height: 420px; overflow: auto;
+}
+.suggest li { padding: 7px 14px; cursor: pointer; }
+.suggest li[aria-selected="true"], .suggest li:hover { background: var(--accent-soft); }
+.suggest .t { color: var(--text-muted); font-size: 12px; margin-left: 6px; }
+.presets { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.preset { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 13px; }
+.preset .lbl { color: var(--text-muted); margin-right: 2px; display: inline-flex; align-items: center; }
+.preset .lbl button { font: inherit; color: var(--text-muted); background: none; border: 0; padding: 0; cursor: pointer; }
+.preset .lbl button:hover { color: var(--accent); text-decoration: underline; }
+.chip {
+  font: inherit; font-size: 13px; padding: 2px 9px; border-radius: 3px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary);
+}
+.chip:hover { border-color: var(--accent); color: var(--text-primary); }
+
+/* gene result */
+.genehead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.genehead h2 { font-size: 24px; margin: 0; font-style: italic; }
+.genehead .loc { color: var(--text-muted); font-size: 13px; }
+.links { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.links { gap: 4px 14px; font-size: 13px; }
+.links a { color: var(--accent); }
+.links a:hover { text-decoration: underline; }
+.dl { font: inherit; font-size: 12px; padding: 2px 10px; border: 1px solid var(--accent); border-radius: 3px; color: var(--accent); background: none; cursor: pointer; }
+.dl:hover { background: var(--accent-soft); }
+.cardhead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.cite { background: var(--surface-2); border-radius: 3px; padding: 10px 12px; color: var(--text-primary); font-size: 13px; }
+.summary { color: var(--text-secondary); font-size: 13px; margin-top: 8px; }
+.summary b { color: var(--text-primary); }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.chartwrap { position: relative; margin-top: 10px; }
+svg text { fill: var(--text-secondary); font-size: 12px; font-family: inherit; }
+svg .muted { fill: var(--text-muted); }
+svg .grid { stroke: var(--grid); stroke-width: 1; }
+svg .baseline { stroke: var(--axis); stroke-width: 1; }
+svg .dot { stroke: var(--surface-1); stroke-width: 2; }
+svg .mean { stroke: var(--text-primary); stroke-width: 2; stroke-linecap: round; }
+svg .hit { fill: transparent; cursor: pointer; }
+svg .colbg { fill: var(--surface-2); }
+.legend { display: flex; gap: 16px; font-size: 13px; color: var(--text-secondary); margin-top: 6px; flex-wrap: wrap; align-items: center; }
+.legend .mk { display: inline-block; width: 14px; height: 2px; background: var(--text-primary); border-radius: 1px; vertical-align: 4px; margin-right: 6px; }
+.tip {
+  position: absolute; pointer-events: none; z-index: 10; display: none;
+  background: var(--surface-1); border: 1px solid var(--border); border-radius: 3px;
+  padding: 9px 11px; font-size: 12px; box-shadow: 0 2px 6px rgba(0,0,0,.10); min-width: 190px;
+}
+.tip b { font-size: 13px; color: var(--text-primary); display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.tip .r { display: flex; justify-content: space-between; gap: 12px; color: var(--text-secondary); }
+.tip .r span:last-child { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.tip .n { color: var(--text-muted); margin-top: 4px; word-break: break-all; }
+
+/* tables */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--grid); }
+th { color: var(--text-muted); font-weight: 600; position: sticky; top: 0; background: var(--surface-1); z-index: 1; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr.group td { background: var(--surface-2); font-weight: 600; color: var(--text-primary); border-bottom: 0; }
+.ctcell { display: inline-flex; align-items: center; gap: 7px; }
+.barcell { width: 34%; }
+.bar { display: flex; align-items: center; gap: 8px; }
+.bar i { display: block; height: 8px; border-radius: 0; min-width: 2px; }
+.bar span { font-variant-numeric: tabular-nums; color: var(--text-primary); min-width: 40px; text-align: right; }
+.best { font-size: 11px; padding: 1px 7px; border-radius: 3px; background: var(--accent-soft); color: var(--text-primary); margin-left: 6px; white-space: nowrap; }
+.scroll { max-height: 480px; overflow: auto; }
+/* full-length lists: scroll with the page, header stays on top */
+.flow { overflow: visible; }
+@media (max-width: 640px) { .flow { overflow-x: auto; } }
+details summary { cursor: pointer; color: var(--text-secondary); font-size: 13px; margin-top: 12px; }
+
+/* heatmap */
+.heat { overflow-x: auto; }
+.heat table { width: auto; min-width: 100%; }
+.heat th { text-align: center; white-space: nowrap; }
+.heat th:first-child, .heat td:first-child { text-align: left; }
+.heat td.hc { text-align: center; font-variant-numeric: tabular-nums; min-width: 78px; border: 2px solid var(--surface-1); border-radius: 3px; }
+.heat td.g button { font: inherit; font-weight: 600; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; }
+.heat th .sw { margin-right: 5px; vertical-align: 0; }
+.scale { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); margin-top: 10px; }
+.scale i { display: block; width: 140px; height: 8px; border-radius: 0; background: linear-gradient(90deg, rgba(var(--heat), .06), rgba(var(--heat), 1)); }
+
+/* samples tab */
+.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+.filters select, .filters input {
+  font: inherit; font-size: 13px; padding: 7px 10px; border-radius: 3px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text-primary);
+}
+.cts { display: grid; grid-template-columns: 150px 1fr 36px; gap: 6px 12px; align-items: center; font-size: 13px; }
+.cts .b { height: 14px; border-radius: 0; }
+.cts .c { text-align: right; font-variant-numeric: tabular-nums; color: var(--text-primary); }
+.cts button { font: inherit; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; color: var(--text-secondary); display: inline-flex; align-items: center; gap: 7px; }
+.cts button:hover { color: var(--text-primary); }
+.badge { font-size: 11px; padding: 1px 7px; border-radius: 3px; border: 1px solid var(--border); color: var(--text-muted); }
+.badge.yes { border-color: var(--accent); color: var(--text-primary); }
+.about p, .about li { color: var(--text-secondary); }
+.about li { margin-bottom: 6px; }
+.about code { font-size: 12px; }
+.empty { color: var(--text-muted); padding: 28px 0; text-align: center; }
+footer { color: var(--text-muted); font-size: 12px; text-align: center; padding: 0 0 32px; }
+@media (max-width: 640px) {
+  .wrap { padding: 0 16px; }
+  .cts { grid-template-columns: 120px 1fr 36px; }
+  .barcell { width: auto; }
+  .top { padding-top: 14px; }
+  .brand p { font-size: 13px; }
+  .meta { gap: 4px 14px; font-size: 12px; }
+  .theme { padding: 4px 10px; font-size: 12px; }
+  nav button { padding: 10px 10px; }
+  .card { padding: 16px 14px; }
+}
+
+.pbar { transition: opacity .12s; }
+.phit:hover ~ .pbar { opacity: .45; }
+#pchart { overflow-x: auto; }
+[hidden] { display: none !important; }
+.chead { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ptypes { margin: 0; justify-content: flex-end; }
+.mockwarn { margin-left: 8px; font-size: 12px; font-weight: 600; color: var(--warn-text); background: var(--warn-bg); padding: 2px 8px; border-radius: 999px; }
+.plink { fill: var(--accent); cursor: pointer; }
+.plink:hover { text-decoration: underline; }
+.dl.big { font-size: 15px; padding: 8px 16px; }
+#plibout td:last-child { width: 220px; }
+#plibout td:last-child .dl { white-space: nowrap; }
+#plibout td .range { white-space: normal; max-width: 620px; }
+.ctspan { text-align: center; border-bottom: 1px solid var(--grid); }
+.pcol { font-size: 11px; white-space: nowrap; text-align: center; }
+
+/* About tab */
+.about .lead { font-size: 15px; line-height: 1.6; margin: 0 0 8px; }
+.about .lead-note { color: var(--text-secondary); margin: 0; }
+.aboutnav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--grid); }
+.aboutnav a { font-size: 13px; font-weight: 600; }
+.about h2 { margin-top: 0; }
+.deflist { display: grid; grid-template-columns: 190px 1fr; gap: 10px 22px; margin: 0; }
+.deflist dt { font-weight: 700; color: var(--text-primary); }
+.deflist dd { margin: 0; color: var(--text-secondary); }
+ul.tight { margin: 0; padding-left: 18px; color: var(--text-secondary); }
+ul.tight li { margin-bottom: 7px; }
+ul.tight li:last-child { margin-bottom: 0; }
+@media (max-width: 760px) { .deflist { grid-template-columns: 1fr; gap: 2px 0; } .deflist dd { margin-bottom: 10px; } }
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand .logo { flex: none; }
+.brand .txt { min-width: 0; }
+@media (max-width: 760px) { .brand .logo { width: 48px; height: 48px; } }
+
+.linebtn { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.linebtn:hover { color: var(--accent-hover, var(--accent)); }
+#linepanel { position: fixed; inset: 0; background: rgba(0,0,0,.45); display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 60; }
+#linepanel[hidden] { display: none; }
+.linecard { position: relative; background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; max-width: 620px; width: 100%; max-height: 80vh; overflow: auto; padding: 22px 24px; }
+.linecard h3 { margin: 0 0 2px; font-size: 20px; }
+#lineclose { position: absolute; top: 10px; right: 12px; font-size: 22px; line-height: 1; background: none; border: 0; color: var(--text-muted); cursor: pointer; }
+.prod { font-size: 12px; line-height: 1.45; margin-bottom: 4px; }
+.lr { display: grid; grid-template-columns: 120px 1fr; gap: 6px 14px; padding: 7px 0; border-top: 1px solid var(--grid); }
+.lr span:first-child { font-weight: 600; }
+.lnote, .lcite { margin: 12px 0 0; color: var(--text-secondary); font-size: 13px; line-height: 1.55; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand"><svg class="logo" viewBox="0 0 63 63" width="66" height="66" role="img" aria-label="iPSC Zoo: an iPSC surrounded by iPSC-derived cell types"><g transform="translate(31.5 10.0) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -3.0 -2.3 C -1.2 -4.2, 1.6 -4.4, 3.4 -2.4 C 4.8 -0.8, 4.4 2.2, 2.4 3.3 C 0.4 4.4, -2.6 3.8, -3.8 1.8 C -4.6 0.4, -4.2 -1.2, -3.0 -2.3 Z" fill="var(--ct-iNEx)"/><path d="M 0.6 -4.0 L 1.4 -7.4 M 1.4 -7.4 L -0.8 -9.4 M 1.4 -7.4 L 4.0 -9.0 M 3.8 -1.6 L 7.2 -3.0 M 7.2 -3.0 L 9.4 -1.6 M 7.2 -3.0 L 8.8 -5.6 M -4.0 0.2 L -7.4 -0.9 M -7.4 -0.9 L -9.4 0.9 M -7.4 -0.9 L -9.0 -3.4 M 0.0 3.9 L 1.2 9.4" stroke="var(--ct-iNEx)" stroke-width="1.55" fill="none" stroke-linecap="round"/><circle cx="-0.2" cy="0.4" r="2.0" fill="#fff"/></g><g transform="translate(46.7 16.3) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="3.9" fill="var(--ct-iMGL)"/><path d="M 2.9 0.3 L 7.4 0.8 M 7.4 0.8 L 9.4 -0.3 M 7.4 0.8 L 9.1 2.3 M 2.4 1.6 L 6.2 4.1 M 6.2 4.1 L 8.5 4.1 M 6.2 4.1 L 7.0 6.2 M 1.4 2.6 L 3.5 6.5 M 3.5 6.5 L 5.6 7.6 M 3.5 6.5 L 3.3 8.8 M 0.0 2.9 L 0.1 7.4 M 0.1 7.4 L 1.4 9.3 M 0.1 7.4 L -1.1 9.3 M -1.3 2.6 L -3.3 6.6 M -3.3 6.6 L -3.0 8.9 M -3.3 6.6 L -5.3 7.7 M -2.4 1.7 L -6.0 4.3 M -6.0 4.3 L -6.8 6.5 M -6.0 4.3 L -8.3 4.4 M -2.9 0.4 L -7.3 1.0 M -7.3 1.0 L -9.0 2.5 M -7.3 1.0 L -9.4 -0.0 M -2.8 -1.0 L -7.0 -2.5 M -7.0 -2.5 L -9.2 -1.9 M -7.0 -2.5 L -8.3 -4.4 M -2.0 -2.2 L -5.0 -5.5 M -5.0 -5.5 L -7.2 -6.0 M -5.0 -5.5 L -5.3 -7.7 M -0.7 -2.8 L -1.9 -7.2 M -1.9 -7.2 L -3.6 -8.7 M -1.9 -7.2 L -1.1 -9.3 M 0.7 -2.9 L 1.7 -7.2 M 1.7 -7.2 L 0.8 -9.4 M 1.7 -7.2 L 3.3 -8.8 M 1.9 -2.2 L 4.8 -5.6 M 4.8 -5.6 L 5.1 -7.9 M 4.8 -5.6 L 7.0 -6.2 M 2.7 -1.1 L 6.9 -2.7 M 6.9 -2.7 L 8.2 -4.6 M 6.9 -2.7 L 9.1 -2.2" stroke="var(--ct-iMGL)" stroke-width="1.25" fill="none" stroke-linecap="round"/><circle cx="0" cy="0" r="1.9" fill="#fff"/></g><g transform="translate(53.0 31.5) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="4.2" fill="var(--ct-iAstro)"/><path d="M 3.1 -0.7 L 7.0 -1.5 M 7.0 -1.5 L 8.5 -3.3 M 7.0 -1.5 L 9.1 -0.4 M 2.4 2.0 L 5.6 4.6 M 5.6 4.6 L 7.9 4.5 M 5.6 4.6 L 6.0 6.8 M -0.0 3.1 L -0.1 7.2 M -0.1 7.2 L 1.3 9.0 M -0.1 7.2 L -1.6 8.9 M -2.5 1.9 L -5.7 4.4 M -5.7 4.4 L -6.2 6.7 M -5.7 4.4 L -8.0 4.3 M -3.1 -0.7 L -7.0 -1.7 M -7.0 -1.7 L -9.1 -0.7 M -7.0 -1.7 L -8.4 -3.6 M -1.3 -2.9 L -3.0 -6.5 M -3.0 -6.5 L -5.1 -7.5 M -3.0 -6.5 L -2.4 -8.8 M 1.4 -2.8 L 3.2 -6.4 M 3.2 -6.4 L 2.7 -8.7 M 3.2 -6.4 L 5.3 -7.4" stroke="var(--ct-iAstro)" stroke-width="1.9" fill="none" stroke-linecap="round"/><circle cx="0" cy="0" r="2.0" fill="#fff"/></g><g transform="translate(46.7 46.7) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="6.6" fill="var(--ct-iHPC)"/><circle cx="-0.8" cy="-0.6" r="2.0" fill="#fff"/></g><g transform="translate(31.5 53.0) rotate(0)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><ellipse cx="-0.4" cy="3.2" rx="5.2" ry="4.4" fill="var(--ct-iOL)"/><path d="M -2.1 0.6 L -4.2 -4.4" stroke="var(--ct-iOL)" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="-4.2" cy="-6.6" rx="1.9" ry="2.6" transform="rotate(-14 -4.2 -6.6)" fill="var(--ct-iOL)"/><path d="M 0.0 0.6 L 0.0 -4.4" stroke="var(--ct-iOL)" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="0.0" cy="-6.6" rx="1.9" ry="2.6" transform="rotate(0 0.0 -6.6)" fill="var(--ct-iOL)"/><path d="M 2.1 0.6 L 4.2 -4.4" stroke="var(--ct-iOL)" stroke-width="1.7" stroke-linecap="round" fill="none"/><ellipse cx="4.2" cy="-6.6" rx="1.9" ry="2.6" transform="rotate(14 4.2 -6.6)" fill="var(--ct-iOL)"/><circle cx="-0.4" cy="3.2" r="2.0" fill="#fff"/></g><g transform="translate(16.3 46.7) rotate(225)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -9.2 1.6 C -5.6 -1.0, -2.0 -2.6, 0.6 -2.6 C 3.4 -2.6, 6.4 -3.2, 9.2 -4.0 C 6.2 -0.6, 3.2 1.4, 0.4 2.0 C -2.4 2.6, -5.8 2.6, -9.2 1.6 Z" fill="var(--ct-iNPC)"/><circle cx="0.2" cy="-0.3" r="1.9" fill="#fff"/></g><g transform="translate(10.0 31.5) rotate(270)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -8.8 1.6 C -4.6 -5.0, 3.6 -5.4, 8.8 -2.0 C 7.2 0.4, 3.0 2.0, -1.0 2.2 C -4.0 2.3, -6.8 2.1, -8.8 1.6 Z" fill="var(--ct-iEC)"/><path d="M -8.8 1.6 C -5.6 3.9, 2.2 4.8, 8.4 2.4 C 8.6 1.8, 8.7 1.2, 8.8 -0.6 C 4.0 1.6, -3.0 2.5, -8.8 1.6 Z" fill="#E8454F"/><circle cx="-3.0" cy="-0.8" r="2.0" fill="#fff"/></g><g transform="translate(16.3 16.3) rotate(315)" stroke="#1d1d1b" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path d="M -8.6 3.4 C -4.0 0.2, -1.0 -4.0, 1.0 -8.0 C 2.6 -4.4, 5.0 -0.6, 8.6 2.6 C 4.0 4.8, -3.4 5.0, -8.6 3.4 Z" fill="var(--ct-Fib)"/><circle cx="0.4" cy="0.8" r="2.0" fill="#fff"/></g><g transform="translate(31.5 31.5)" stroke="#1d1d1b" stroke-width="1.05" stroke-linejoin="round"><path d="M 0 -8.8 C 4.0 -8.8, 7.4 -6.4, 8.4 -2.8 C 9.2 0.6, 8.0 4.4, 5.0 6.6 C 2.2 8.6, -2.2 8.8, -5.0 6.8 C -8.0 4.6, -9.2 0.8, -8.4 -2.6 C -7.5 -6.2, -4.0 -8.8, 0 -8.8 Z" fill="var(--ct-iPSC)"/><circle cx="-0.6" cy="-0.4" r="2.3" fill="#fff"/></g></svg>
+        <h1><a href="#">iPSC Zoo</a></h1>
+        <p>Bulk RNA-seq of iPSC-derived cell types · Corces Lab, Gladstone Institutes</p>
+      </div>
+      <div class="topsearch">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <div class="combo" id="combo">
+            <span id="tokens" style="display:contents"></span>
+            <input id="q" type="text" placeholder="Search or pick genes…" autocomplete="off" aria-label="Genes" role="combobox" aria-expanded="false" aria-controls="suggest">
+          </div>
+          <button class="caret" id="caret" type="button" aria-label="Show gene options">▾</button>
+          <div class="suggest" id="suggest" role="listbox" aria-multiselectable="true"></div>
+        </div>
+      </div>
+      <button class="theme" id="theme" type="button">Dark mode</button>
+    </div>
+    <div class="subbar">
+      <nav role="tablist">
+        <button role="tab" aria-selected="true" data-tab="gene">Gene / cell type lookup</button>
+        <button role="tab" aria-selected="false" data-tab="protocol">Gene / protocol lookup</button>
+        <button role="tab" aria-selected="false" data-tab="plib">Protocols</button>
+        <button role="tab" aria-selected="false" data-tab="samples">Samples</button>
+        <button role="tab" aria-selected="false" data-tab="about">About the data</button>
+      </nav>
+      <div class="meta" id="meta"></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="toolbar" id="toolbar"></div>
+  <section id="tab-gene">
+    <div id="result"></div>
+  </section>
+  <section id="tab-protocol" hidden>
+    <div id="presult"></div>
+  </section>
+  <section id="tab-plib" hidden><div id="plibout"></div></section>
+  <section id="tab-samples" hidden>
+    <div class="cols samples">
+    <div class="card side">
+      <h2>Samples by cell type</h2>
+      <div class="cts" id="cts"></div>
+    </div>
+    <div class="card">
+      <h2>All Zoo samples</h2>
+      <div class="filters">
+        <select id="f-ct" aria-label="Cell type"></select>
+        <input id="f-text" type="search" placeholder="Filter: protocol, lab, line…" aria-label="Filter text">
+        <span id="f-count" class="hint" style="margin:0"></span>
+      </div>
+      <div class="flow"><table id="sample-table"></table></div>
+    </div>
+    </div>
+  </section>
+  <section id="tab-about" hidden>
+    <div class="card about">
+      <p class="lead">The <b>iPSC Zoo</b> is a reference collection of iPSC-derived cell types, contributed by many
+      laboratories using their own differentiation protocols and profiled under a single pipeline in the Corces Lab.
+      This site reports bulk RNA-seq expression for any gene across those cell types, protocols, iPSC lines and labs.</p>
+      <p class="lead-note">It does not recommend a protocol. Expression is one of several considerations, alongside
+      the iPSC line, the number of samples behind a value, and data this site does not hold.</p>
+      <nav class="aboutnav">
+        <a href="#about-methods">Methods</a><a href="#about-reading">Reading the data</a><a href="#about-limits">Limitations</a>
+        <a href="#about-contribute">Contribute</a><a href="#about-ack">Acknowledgements</a><a href="#about-cite">Data &amp; citation</a>
+      </nav>
+    </div>
+
+    <div class="card about">
+      <h2 id="about-methods">Methods</h2>
+      <dl class="deflist">
+        <dt>Expression unit</dt>
+        <dd>TPM (transcripts per million). TPM corrects for gene length and sequencing depth, so a gene is comparable
+          <b>across samples</b>. It is a within-sample proportion, so values are not directly comparable
+          <b>between genes</b>, and they are not raw counts.</dd>
+        <dt>Processing</dt>
+        <dd>nf-core/rnaseq (STAR alignment, Salmon quantification), run <code>260213_full_run</code>. Values are
+          reported as produced by the pipeline; this site applies no further normalisation.</dd>
+        <dt>Gene annotation</dt>
+        <dd>GENCODE protein-coding genes. Non-coding biotypes are excluded. Where several annotation rows share a
+          gene symbol, their values are summed.</dd>
+        <dt>Sample annotation</dt>
+        <dd><span id="n-sig"></span> RNA-seq samples. Cell type, protocol, lab, iPSC line and batch are parsed from
+          each sample name and cross-checked against the Zoo sample sheet.</dd>
+        <dt>Protocol key</dt>
+        <dd>Protocol names, types and references are taken from the Zoo protocol annotations; most protocols link to
+          their source publication on PubMed from the <b>Protocols</b> tab.</dd>
+      </dl>
+    </div>
+
+    <div class="card about">
+      <h2 id="about-reading">Reading the data</h2>
+      <dl class="deflist">
+        <dt>Several genes</dt>
+        <dd>The comparison grid shades each row against its own maximum, because TPM compares a gene across samples
+          rather than one gene against another. Figures shown are means.</dd>
+        <dt>By protocol</dt>
+        <dd>One bar per protocol within a cell type, in numerical order. Protocols are never ordered by expression.</dd>
+        <dt>Log scale</dt>
+        <dd>log10(TPM + 1).</dd>
+        <dt>Cell-type labels</dt>
+        <dd><b>exNiAst</b> and <b>inNiAst</b> are NFIB/SOX9-induced astrocyte variants (excitatory and inhibitory
+          co-culture, labelled exc/inh in the sample sheet) and are shown beside the other astrocytes.</dd>
+        <dt>Control</dt>
+        <dd><b>K562</b> is an immortalised control cell line included in every batch, shown in grey and excluded from
+          the brain-cell view.</dd>
+        <dt>Identifiers</dt>
+        <dd>Labs appear as codes. <b>Line “not reported”</b> means no line was recorded for that sample.</dd>
+      </dl>
+    </div>
+
+    <div class="card about">
+      <h2 id="about-limits">Limitations</h2>
+      <ul class="tight">
+        <li>Many protocol and line combinations are represented by a <b>single sample</b>. Sample counts are shown
+          beside every value and should be read with it.</li>
+        <li>Expression differs between iPSC lines on the same protocol, so a protocol-level mean can conceal
+          line-to-line variation.</li>
+        <li>Bulk RNA-seq reports the average of a culture. High expression of a marker does not establish purity,
+          and low expression does not exclude a minority population.</li>
+        <li>Sample metadata is parsed from sample names; discrepancies between names and the Zoo sample sheet are
+          reconciled with the Zoo team as they are found.</li>
+        <li>These data are <b>unpublished</b>. Figures may change as the collection grows and processing is revised.</li>
+      </ul>
+    </div>
+
+    <div class="card about">
+      <h2 id="about-contribute">Contribute samples</h2>
+      <div id="contrib"></div>
+    </div>
+
+    <div class="card about">
+      <h2 id="about-ack">Acknowledgements</h2>
+      <div id="ack"></div>
+    </div>
+
+    <div class="card about">
+      <h2 id="about-cite">Data &amp; citation</h2>
+      <div id="cite"></div>
+      <p id="built" class="hint"></p>
+    </div>
+  </section>
+</main>
+<div id="linepanel" hidden><div class="linecard"><button id="lineclose" type="button" aria-label="Close">×</button><div id="linebody"></div></div></div>
+<footer class="wrap" id="footer">iPSC Zoo · Corces Lab, Gladstone Institutes</footer>
+<div class="tip" id="tip" role="tooltip"></div>
+<script src="config.js"></script>
+<script src="data/core.js"></script>
+<script src="data/protocols.js"></script>
+<script src="data/lines.js"></script>
+<script>
+"use strict";
+const Z = window.ZOO;
+const CFG = Object.assign({ mode: "lab", citation: "", paperUrl: "", dataUrl: "", contact: "" }, window.ZOO_CONFIG || {});
+const PUBLIC = CFG.mode === "public";
+if (!PUBLIC) { const m = document.createElement("meta"); m.name = "robots"; m.content = "noindex, nofollow"; document.head.appendChild(m); }
+
+// expression values live in small per-gene-group files, loaded when a gene is looked up
+const CH = Z.expr.chunk, chunks = {}, waiting = {};
+window.ZOO_CHUNK = (k, rows) => { chunks[k] = rows; (waiting[k] || []).forEach((f) => f[0]()); delete waiting[k]; };
+function loadChunk(k) {
+  if (chunks[k]) return Promise.resolve();
+  return new Promise((res, rej) => {
+    if (!waiting[k]) {
+      waiting[k] = [];
+      const sc = document.createElement("script");
+      sc.src = `data/expr/c${String(k).padStart(3, "0")}.js`;
+      sc.onerror = () => { (waiting[k] || []).forEach((f) => f[1](new Error("Could not load " + sc.src))); delete waiting[k]; sc.remove(); };
+      document.head.appendChild(sc);
+    }
+    waiting[k].push([res, rej]);
+  });
+}
+const geneVals = (i) => chunks[Math.floor(i / CH)][i % CH];
+// Every CSV is marked as coming from the Corces Lab: "CorcesLab_" filename prefix + "#" header lines.
+// Readers: R read.csv(f, comment.char = "#"); pandas read_csv(f, comment="#"); Excel shows them as top rows.
+function download(name, rows) {
+  const today = new Date().toISOString().slice(0, 10);
+  const mark = [
+    "# iPSC Zoo - Corces Lab, Gladstone Institutes",
+    PUBLIC ? `# Source: ${CFG.citation || "iPSC Zoo"}` : "# UNPUBLISHED DATA - Corces Lab use only, do not share outside the lab",
+    `# Data version ${Z.built} | downloaded ${today}`,
+  ];
+  const csv = mark.join("\n") + "\n" + rows.map((r) => r.map((x) => /[",\n]/.test(String(x)) ? `"${String(x).replace(/"/g, '""')}"` : x).join(",")).join("\n");
+  if (!/^CorcesLab_/.test(name)) name = "CorcesLab_" + name;
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+  a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+const $ = (id) => document.getElementById(id);
+const fmt = (v) => v >= 100 ? Math.round(v).toLocaleString() : v >= 10 ? v.toFixed(1) : v >= 1 ? v.toFixed(2) : v.toFixed(3);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const CONTROL = new Set(["K562", "SW1088"]);
+const CT_NAMES = { iNEx: "Neurons (excitatory)", iNInh: "Neurons (inhibitory)", iNMot: "Neurons (motor)",
+  iN: "Neurons (mixed)", iNPC: "Neural progenitors", iAstro: "Astrocytes", iMGL: "Microglia", iHPC: "Haematopoietic progenitors",
+  iOL: "Oligodendrocytes", iEC: "Endothelial", Fib: "Fibroblasts", iPSC: "iPSCs",
+  K562: "K562 (control)", SW1088: "SW1088 (control)" };
+const ctName = (c) => CT_NAMES[c] || c;
+const PROTO = (typeof window.ZOO_PROTOCOLS === "object" && window.ZOO_PROTOCOLS) || {};
+const protoInfo = (c) => PROTO[String(c)] || null;
+const protoName = (c) => { const p = protoInfo(c); return p && p.name ? p.name : "p" + c; };
+const protoFull = (c) => { const p = protoInfo(c); return p && p.name ? `${p.name} (p${c})` : "p" + c; };
+function keepScroll(fn) {        // re-rendering a panel resets the page scroll; put it back
+  const y = window.scrollY, x = window.scrollX;
+  fn();
+  window.scrollTo(x, y);
+  requestAnimationFrame(() => window.scrollTo(x, y));
+}
+const protoIsMock = (c) => { const p = protoInfo(c); return !!(p && p.mock); };
+const protoDoc = (c) => { const p = protoInfo(c); return p ? (p.pdf || p.url || null) : null; };
+const protoIsFile = (c) => { const p = protoInfo(c); return !!(p && p.pdf); };
+const protoKind = (c) => { const p = protoInfo(c); return p && p.kind ? p.kind : "protocol"; };
+const LINES = (typeof window.ZOO_LINES === "object" && window.ZOO_LINES) || {};
+const lineInfo = (l) => LINES[String(l)] || null;
+// clickable when we know something about the line; plain text otherwise
+function lineLink(l) {
+  if (!l || l === "na") return "–";
+  const info = lineInfo(l);
+  const label = /^unk/.test(l) ? "not reported" : "line" + esc(l);
+  if (!info) return label;
+  return `<button class="linebtn" type="button" data-line="${esc(l)}" title="${esc(info.name)} — click for details">${label}</button>`;
+}
+const NOTYPE = "__none__";
+const protoType = (c) => { const p = protoInfo(c); return (p && p.type) ? String(p.type) : NOTYPE; };
+const TYPE_LABELS = { directed: "Directed differentiation", conversion: "Direct conversion",
+                      transdifferentiation: "Transdifferentiation", organoid: "Organoid" };
+const typeName = (t) => t === NOTYPE ? "Type not set"
+  : (TYPE_LABELS[t.toLowerCase()] || t.charAt(0).toUpperCase() + t.slice(1));
+let activeTypes = null;   // null = show everything (set once the key has types)
+let activeTypeTouched = false;
+const lineLabel = (l) => !l || l === "na" ? "–" : /^unk/.test(l) ? "not reported" : "line" + esc(l);
+const ctColor = (c) => CONTROL.has(c) || !CT_NAMES[c] ? "var(--ct-control)" : `var(--ct-${c})`;
+const sw = (c) => `<span class="sw" style="background:${ctColor(c)}"></span>`;
+const CT_ORDER = ["iNEx", "iNInh", "iNMot", "iN", "iNPC", "iAstro", "iMGL", "iHPC", "iOL", "iEC", "Fib", "iPSC", "K562", "SW1088"];
+const ctSort = (a, b) => (CT_ORDER.indexOf(a) + 1 || 99) - (CT_ORDER.indexOf(b) + 1 || 99);
+
+// ---- theme toggle (remembered per browser when storage is available) ----
+const root = document.documentElement;
+function isDark() { return root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; }
+function setThemeLabel() { $("theme").textContent = isDark() ? "Light mode" : "Dark mode"; }
+try { const t = localStorage.getItem("zoo-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+setThemeLabel();
+$("theme").addEventListener("click", () => {
+  root.dataset.theme = isDark() ? "light" : "dark";
+  try { localStorage.setItem("zoo-theme", root.dataset.theme); } catch (e) {}
+  setThemeLabel();
+});
+
+// ---- indexes ----
+const sampleByName = Object.fromEntries(Z.samples.map((s) => [s.sample, s]));
+const geneIndex = new Map();
+Z.genes.forEach((g, i) => { if (!geneIndex.has(g.gene.toUpperCase())) geneIndex.set(g.gene.toUpperCase(), i); });
+const geneNames = Z.genes.map((g) => g.gene);
+const sigSamples = Z.expr.samples.map((s) => sampleByName[s]);
+const sigCts = [...new Set(sigSamples.map((s) => s.cell_type))].sort(ctSort);
+const uniq = (k) => new Set(Z.samples.map((s) => s[k]).filter((x) => x && x !== "na" && !/^unk/.test(x))).size;
+$("meta").innerHTML = [[Z.samples.length, "samples"], [new Set(Z.samples.map((s) => s.cell_type)).size, "cell types"],
+  [uniq("protocol"), "protocols"], [uniq("lab"), "labs"], [uniq("line"), "iPSC lines"]]
+  .map(([v, l]) => `<span><b>${v}</b> ${l}</span>`).join("") + `<span class="pill" title="Unpublished iPSC Zoo bulk RNA-seq. Lab members only; please do not share outside the lab.">Unpublished data, lab use only</span>`;
+if (PUBLIC) $("meta").querySelector(".pill").remove();
+
+// ---- tabs ----
+let curTab = "gene";
+document.querySelectorAll("nav button").forEach((b) => b.addEventListener("click", () => {
+  document.querySelectorAll("nav button").forEach((x) => x.setAttribute("aria-selected", x === b));
+  curTab = b.dataset.tab;
+  ["gene", "protocol", "plib", "samples", "about"].forEach((t) => { $("tab-" + t).hidden = t !== curTab; });
+  $("toolbar").hidden = !(curTab === "gene" || curTab === "protocol");
+  if (curTab === "plib") renderProtocolLibrary();
+  if (curTab === "gene" || curTab === "protocol") render();
+}));
+
+// ---- state: chosen genes + which cell types are shown ----
+let genes = [];
+let active = new Set(sigCts);
+const PRESETS = [
+  ["Microglia markers", ["TREM2", "P2RY12", "CX3CR1"]], ["Astrocyte markers", ["GFAP", "AQP4"]],
+  ["Neuron markers", ["RBFOX3", "SYP", "NEUROD2"]], ["Oligodendrocyte markers", ["OLIG2", "MBP"]],
+  ["Pluripotency", ["POU5F1", "NANOG"]], ["AD risk genes", ["APOE", "BIN1"]],
+].map(([l, gs]) => [l, gs.filter((g) => geneIndex.has(g))]);
+const POPULAR = [...new Set(PRESETS.flatMap(([, gs]) => gs))];
+const BRAIN = ["iNEx", "iNInh", "iNMot", "iN", "iNPC", "iAstro", "iMGL", "iOL", "iEC"];
+
+// ---- multi-select gene box with a dropdown ----
+const q = $("q"), sug = $("suggest"), combo = $("combo");
+let items = [], sel = -1;
+const canon = (n) => { const i = geneIndex.get(String(n).toUpperCase()); return i === undefined ? null : Z.genes[i].gene; };
+function renderTokens() {
+  $("tokens").innerHTML = genes.map((g) => `<span class="tok">${esc(g)}<button type="button" data-rm="${esc(g)}" aria-label="Remove ${esc(g)}">×</button></span>`).join("");
+  q.placeholder = genes.length ? "Add another gene to compare…" : "Search or pick genes…";
+}
+function openList() {
+  const v = q.value.trim().toUpperCase();
+  items = [];
+  let html = "";
+  const opt = (it, label, desc) => { items.push(it); const i = items.length - 1;
+    const on = it.gene && genes.includes(it.gene);
+    return `<div class="opt${on ? " on" : ""}" role="option" data-i="${i}" aria-selected="false">${it.gene ? `<span class="ck">${on ? "✓" : ""}</span>` : ""}<span class="g">${esc(label)}</span><span class="d">${esc(desc || "")}</span></div>`; };
+  if (!v) {
+    html += `<div class="sec">Marker sets (compare together)</div>`;
+    PRESETS.forEach(([l, gs]) => { html += opt({ set: gs }, l, gs.join(", ")); });
+    html += `<div class="sec">Popular genes</div>`;
+    POPULAR.forEach((g) => { html += opt({ gene: g }, g, PRESETS.find(([, gs]) => gs.includes(g))[0].replace(" markers", "")); });
+  } else {
+    const starts = [], contains = [];
+    for (const n of geneNames) {
+      const u = n.toUpperCase();
+      if (u.startsWith(v)) starts.push(n); else if (contains.length < 30 && u.includes(v)) contains.push(n);
+      if (starts.length >= 200) break;
+    }
+    starts.sort((a, b) => a.length - b.length || a.localeCompare(b));
+    const hits = [...new Set([...starts, ...contains])].slice(0, 30);
+    if (!hits.length) html += `<div class="foot">No gene matches “${esc(q.value.trim())}”.</div>`;
+    hits.forEach((n) => { const g = Z.genes[geneIndex.get(n.toUpperCase())]; html += opt({ gene: n }, n, `${g.chrom} · ${g.type.replace("_", " ")}`); });
+  }
+  sug.innerHTML = html; sel = -1;
+  sug.style.display = "block"; q.setAttribute("aria-expanded", "true");
+}
+function closeList() { sug.style.display = "none"; q.setAttribute("aria-expanded", "false"); }
+function choose(it) {
+  if (it.set) { genes = [...it.set]; q.value = ""; closeList(); }
+  else if (genes.includes(it.gene)) genes = genes.filter((g) => g !== it.gene);
+  else genes = [...genes, it.gene];
+  if (it.gene) { q.value = ""; openList(); }
+  renderTokens(); render();
+}
+function addTyped() {
+  const names = q.value.split(/[\s,;]+/).filter(Boolean);
+  const found = names.map(canon).filter(Boolean);
+  if (!found.length) return false;
+  genes = [...new Set([...genes, ...found])]; q.value = "";
+  renderTokens(); render(); return true;
+}
+combo.addEventListener("click", (e) => { if (!e.target.closest(".tok button")) q.focus(); });
+$("tokens").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-rm]"); if (!b) return;
+  genes = genes.filter((g) => g !== b.dataset.rm); renderTokens(); render();
+});
+q.addEventListener("focus", openList);
+q.addEventListener("input", () => {
+  if (/[,;]\s*$/.test(q.value) || /\s$/.test(q.value) && canon(q.value.trim())) { addTyped(); }
+  openList();
+});
+q.addEventListener("keydown", (e) => {
+  const opts = [...sug.querySelectorAll(".opt")];
+  if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    e.preventDefault(); if (sug.style.display !== "block") openList(); if (!opts.length) return;
+    sel = (sel + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
+    opts.forEach((o, i) => o.setAttribute("aria-selected", i === sel));
+    opts[sel].scrollIntoView({ block: "nearest" });
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if (sel >= 0) choose(items[+opts[sel].dataset.i]);
+    else if (!addTyped() && opts.length && q.value.trim()) choose(items[+opts[0].dataset.i]);
+  } else if (e.key === "Backspace" && !q.value && genes.length) {
+    genes = genes.slice(0, -1); renderTokens(); render(); openList();
+  } else if (e.key === "Escape") { closeList(); q.blur(); }
+});
+sug.addEventListener("mousedown", (e) => { e.preventDefault(); const o = e.target.closest(".opt"); if (o) choose(items[+o.dataset.i]); });
+$("caret").addEventListener("mousedown", (e) => { e.preventDefault(); sug.style.display === "block" ? closeList() : (q.focus(), openList()); });
+q.addEventListener("blur", () => setTimeout(closeList, 120));
+
+// ---- cell-type toggles ----
+function renderToolbar() {
+  $("toolbar").innerHTML = `<span class="lbl">Show cell types</span>` +
+    sigCts.map((c) => `<button class="tog" type="button" data-ct="${c}" aria-pressed="${active.has(c)}">${sw(c)}${esc(ctName(c))}</button>`).join("") +
+    `<span class="sep"></span><button class="quick" data-q="all">All</button><button class="quick" data-q="brain">Brain cells only</button><button class="quick" data-q="none">Clear</button>`;
+}
+$("toolbar").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.ct) { active.has(b.dataset.ct) ? active.delete(b.dataset.ct) : active.add(b.dataset.ct); }
+  else if (b.dataset.q === "all") active = new Set(sigCts);
+  else if (b.dataset.q === "brain") active = new Set(sigCts.filter((c) => BRAIN.includes(c)));
+  else if (b.dataset.q === "none") active = new Set();
+  renderToolbar(); render();
+});
+
+function render() {
+  const cts = sigCts.filter((c) => active.has(c));
+  const h = (curTab === "protocol" ? "tab=protocol&" : "") +
+    (genes.length ? (genes.length === 1 ? "gene=" : "genes=") + encodeURIComponent(genes.join(",")) : "") +
+    (cts.length < sigCts.length ? "&ct=" + encodeURIComponent(cts.join(",")) : "");
+  history.replaceState(null, "", "#" + h.replace(/^&/, ""));
+  const panel = curTab === "protocol" ? "presult" : "result";
+  if (!genes.length) { $(panel).innerHTML = `<div class="card empty">Pick a gene from the search box${curTab === "protocol" ? "." : ", or tick several to compare them."}</div>`; return; }
+  if (!cts.length) { $(panel).innerHTML = `<div class="card empty">No cell types selected. Turn some on above, or click “All”.</div>`; return; }
+  const need = [...new Set(genes.map((g) => Math.floor(geneIndex.get(g.toUpperCase()) / CH)))];
+  const token = ++renderToken;
+  if (need.some((k) => !chunks[k]) && !$(panel).innerHTML) $(panel).innerHTML = `<div class="card empty">Loading…</div>`;
+  Promise.all(need.map(loadChunk)).then(() => {
+    if (token !== renderToken) return;
+    if (curTab === "protocol") { genes.length === 1 ? showByProtocol(genes[0], []) : compareByProtocol(genes, []); return; }
+    genes.length === 1 ? showGene(genes[0], []) : compareGenes(genes, []);
+  }).catch((e) => { $(panel).innerHTML = `<div class="card empty">${esc(e.message)}. If you opened the page from a zip file, unzip the whole folder first.</div>`; });
+}
+let renderToken = 0;
+// old entry point (gene links inside results call this)
+function run(text) { genes = [...new Set(String(text).split(/[\s,;]+/).map(canon).filter(Boolean))]; renderTokens(); render(); }
+
+// ---- shared ----
+const mean = (a) => a.reduce((x, p) => x + p.v, 0) / a.length;
+function pointsFor(i) { const vals = geneVals(i); return sigSamples.map((s, j) => ({ ...s, v: vals[j] })).filter((p) => active.has(p.cell_type)); }
+function groupBy(pts) { const g = {}; pts.forEach((p) => (g[p.cell_type] ||= []).push(p)); return g; }
+const missingNote = (m) => m.length ? `<p class="hint" style="margin-top:8px">Not found: ${m.map(esc).join(", ")}</p>` : "";
+function links(g) {
+  const lo = Math.max(1, g.tss - 10000), hi = g.tss + 10000;
+  return [
+    ["GeneCards", `https://www.genecards.org/cgi-bin/carddisp.pl?gene=${encodeURIComponent(g.gene)}`],
+    ["UCSC browser", `https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg38&position=${g.chrom}:${lo}-${hi}`],
+    ["NCBI Gene", `https://www.ncbi.nlm.nih.gov/gene/?term=${encodeURIComponent(g.gene)}%5Bsym%5D+AND+human%5Borgn%5D`],
+    ["Brain RNA-Seq", `https://brainrnaseq.org/`],
+  ].map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join("");
+}
+
+// ---- one gene (shows the data; no recommendation) ----
+let tableSort = "protocol";
+let logScale = false;
+function showGene(name, missing) {
+  const i = geneIndex.get(name.toUpperCase()), g = Z.genes[i];
+  const pts = pointsFor(i), groups = groupBy(pts);
+  const order = Object.keys(groups).sort(ctSort);
+  const count = (k) => new Set(pts.map((p) => p[k]).filter((x) => x && x !== "na" && !/^unk/.test(x))).size;
+
+  // one row per cell type + protocol + line + lab, because results can differ by line
+  const byRow = {};
+  pts.forEach((p) => {
+    const k = [p.cell_type, p.protocol, p.line, p.lab].join("|");
+    (byRow[k] ||= { ct: p.cell_type, prot: p.protocol, line: p.line, lab: p.lab, a: [] }).a.push(p);
+  });
+  const rowsAll = Object.values(byRow).map((r) => ({ ...r, n: r.a.length, m: mean(r.a),
+    lo: Math.min(...r.a.map((p) => p.v)), hi: Math.max(...r.a.map((p) => p.v)) }));
+  const pmax = Math.max(...rowsAll.map((r) => r.hi), 1e-6);
+  const num = (x) => (x === "na" || x == null ? 1e9 : +x || 1e9);
+  const sorters = {
+    protocol: (a, b) => num(a.prot) - num(b.prot) || num(a.line) - num(b.line) || num(a.lab) - num(b.lab),
+    mean: (a, b) => b.m - a.m,
+  };
+
+  const tbody = () => order.map((c) => {
+    const rs = rowsAll.filter((r) => r.ct === c).sort(sorters[tableSort]);
+    return `<tr class="group"><td colspan="5"><span class="ctcell">${sw(c)}${esc(ctName(c))}</span></td></tr>` + rs.map((r) => `
+      <tr><td title="${esc(protoFull(r.prot))}">${esc(protoName(r.prot))}</td>
+      <td>${lineLink(r.line)}</td>
+      <td>lab${esc(r.lab)}</td>
+      <td class="num">${r.n}</td>
+      <td class="barcell"><div class="bar"><i style="width:${(r.m / pmax) * 100}%;background:${ctColor(c)}"></i><span>${fmt(r.m)}</span></div>${r.n > 1 ? `<div class="range">range ${fmt(r.lo)}–${fmt(r.hi)}</div>` : ""}</td></tr>`).join("");
+  }).join("");
+
+  $("result").innerHTML = `
+    <div class="card">
+      <div><div class="genehead"><h2>${esc(g.gene)}</h2><span class="loc">${esc(g.type.replace("_", " "))} · ${g.chrom}:${g.tss.toLocaleString()} (${g.strand} strand)</span></div>
+      <div class="links">${links(g)}<button class="dl" id="dlGene" type="button">Download CSV</button></div>
+      ${missingNote(missing)}</div>
+      <p class="summary">Measured in <b>${pts.length}</b> samples across ${order.length} cell type${order.length > 1 ? "s" : ""}, from <b>${count("protocol")}</b> protocols, <b>${count("line")}</b> iPSC lines and <b>${count("lab")}</b> labs.</p>
+    </div>
+    <div class="cols">
+    <div class="card">
+      <h2>Expression by cell type</h2>
+      <div class="chartwrap" id="chart"></div>
+      <div class="legend"><span><span class="mk"></span>Cell-type mean</span><span>Gray = control cell line</span><label style="margin-left:auto;display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="logToggle" ${logScale ? "checked" : ""}> Log scale</label></div>
+    </div>
+    <div class="card side">
+      <h2>${esc(g.gene)} by protocol, line and lab</h2>
+      <p class="hint">Expression can differ between lines on the same protocol.</p>
+      <div class="scroll"><table>
+        <thead><tr><th class="sortable" data-sort="protocol" title="Sort by protocol">Protocol${tableSort === "protocol" ? " ▾" : ""}</th><th>Line</th><th>Lab</th><th class="num">n</th><th class="sortable" data-sort="mean" title="Sort by expression">Mean TPM${tableSort === "mean" ? " ▾" : ""}</th></tr></thead>
+        <tbody id="ptbody">${tbody()}</tbody>
+      </table></div>
+      <details><summary>Every sample (table view)</summary>
+        <div class="scroll"><table><thead><tr><th>Sample</th><th>Cell type</th><th class="num">TPM</th></tr></thead>
+        <tbody>${[...pts].sort((a, b) => ctSort(a.cell_type, b.cell_type) || a.sample.localeCompare(b.sample)).map((p) => `<tr><td>${esc(p.sample)}</td><td><span class="ctcell">${sw(p.cell_type)}${esc(ctName(p.cell_type))}</span></td><td class="num">${fmt(p.v)}</td></tr>`).join("")}</tbody></table></div>
+      </details>
+    </div>
+    </div>`;
+  $("dlGene").addEventListener("click", () => download(`iPSCZoo_${g.gene}_TPM.csv`,
+    [["gene", "sample", "cell_type", "protocol", "line", "lab", "batch", "TPM"],
+     ...pts.map((p) => [g.gene, p.sample, p.cell_type, "p" + p.protocol, /^unk/.test(p.line) ? "not reported" : "line" + p.line, "lab" + p.lab, p.batch, p.v])]));
+  $("logToggle").addEventListener("change", (e) => { logScale = e.target.checked; keepScroll(() => drawChart(order, groups)); });
+  $("result").querySelectorAll("th.sortable").forEach((th) => th.addEventListener("click", () => { tableSort = th.dataset.sort; keepScroll(() => showGene(name, missing)); }));
+  drawChart(order, groups);
+}
+
+function drawChart(order, groups) {
+  const el = $("chart");
+  const W = Math.max(300, el.clientWidth), H = 420, m = { t: 14, r: 8, b: 52, l: 52 };
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const all = order.flatMap((c) => groups[c].map((p) => p.v));
+  const tf = (v) => logScale ? Math.log10(v + 1) : v;
+  const ymax = logScale ? tf(10 ** Math.max(1, Math.ceil(Math.log10(Math.max(...all, 0) + 1)))) : niceMax(Math.max(...all, 0.001));
+  const y = (v) => m.t + ih - (tf(v) / ymax) * ih;
+  const band = iw / order.length;
+  const ticks = logScale ? [0, ...Array.from({ length: Math.round(ymax) + 1 }, (_, k) => 10 ** k).filter((t) => tf(t) <= ymax + 1e-9)] : [0, ymax / 4, ymax / 2, (3 * ymax) / 4, ymax];
+  let s = `<svg width="${W}" height="${H}" role="img" aria-label="Gene expression (TPM) by cell type">`;
+  order.forEach((c, k) => { if (k % 2 === 0) s += `<rect class="colbg" x="${m.l + band * k + 2}" y="${m.t}" width="${band - 4}" height="${ih}" rx="6" opacity=".55"/>`; });
+  ticks.forEach((t) => { s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/><text class="muted" x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${logScale ? t.toLocaleString() : tickFmt(t)}</text>`; });
+  s += `<line class="baseline" x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}"/>`;
+  s += `<text class="muted" transform="translate(13 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle">${logScale ? "TPM (log scale)" : "TPM"}</text>`;
+  const marks = [];
+  order.forEach((c, k) => {
+    const cx = m.l + band * (k + 0.5), g = groups[c];
+    const half = Math.min(band * 0.32, 36);
+    g.forEach((p) => {
+      const jitter = g.length > 1 ? ((hash(p.sample) % 1000) / 1000 - 0.5) * half * 1.3 : 0;
+      marks.push({ x: cx + jitter, y: y(p.v), p });
+    });
+    s += `<line class="mean" x1="${cx - half}" x2="${cx + half}" y1="${y(mean(g))}" y2="${y(mean(g))}"/>`;
+    const label = band > 96 ? ctName(c).replace(" (control)", "") : c;
+    s += `<text x="${cx}" y="${H - m.b + 20}" text-anchor="middle" style="fill:var(--text-primary)">${esc(label)}</text><text class="muted" x="${cx}" y="${H - m.b + 36}" text-anchor="middle">n=${g.length}</text>`;
+  });
+  marks.forEach((d) => { s += `<circle class="dot" cx="${d.x}" cy="${d.y}" r="5.5" style="fill:${ctColor(d.p.cell_type)}"/>`; });
+  marks.forEach((d, i) => { s += `<circle class="hit" data-i="${i}" cx="${d.x}" cy="${d.y}" r="11"/>`; });
+  el.innerHTML = s + "</svg>";
+  el.querySelectorAll(".hit").forEach((h) => {
+    const d = marks[+h.dataset.i].p;
+    attachTip(h, () => `<b>${sw(d.cell_type)}${esc(ctName(d.cell_type))}</b>
+      <div class="r"><span>TPM</span><span>${fmt(d.v)}</span></div>
+      <div class="r"><span>Protocol</span><span>p${esc(d.protocol)}</span></div>
+      <div class="r"><span>Lab</span><span>lab${esc(d.lab)}</span></div>
+      <div class="r"><span>Line</span><span>${lineLabel(d.line)}</span></div>
+      <div class="r"><span>Batch</span><span>${esc(d.batch)}</span></div>
+      <div class="n">${esc(d.sample)}</div>`);
+  });
+}
+
+
+
+
+// ---- iPSC line detail panel (opens from any line link) ----
+function openLinePanel(code) {
+  const info = lineInfo(code) || {};
+  const mine = sigSamples.filter((p) => p.line === code);
+  const cts = [...new Set(mine.map((p) => p.cell_type))].sort(ctSort);
+  const prots = [...new Set(mine.map((p) => p.protocol))];
+  const labs = [...new Set(mine.map((p) => p.lab))];
+  const urls = [info.url, ...(info.urls || [])].filter(Boolean);
+  const row = (k, v) => v ? `<div class="lr"><span>${esc(k)}</span><span>${v}</span></div>` : "";
+  $("linebody").innerHTML = `
+    <h3>${esc(info.name || "line" + code)}</h3>
+    <p class="hint">line${esc(code)}</p>
+    ${row("Sex", esc(info.sex || "not recorded"))}
+    ${row("Donor age", info.age ? esc(info.age) : "")}
+    ${row("In the Zoo", `${mine.length} sample${mine.length === 1 ? "" : "s"} · ${prots.length} protocol${prots.length === 1 ? "" : "s"} · ${labs.length} lab${labs.length === 1 ? "" : "s"}`)}
+    ${row("Cell types", cts.map((c) => `<span class="ctcell">${sw(c)}${esc(ctName(c))}</span>`).join(" ") || "–")}
+    ${info.note ? `<p class="lnote">${esc(info.note)}</p>` : ""}
+    ${info.citation ? `<p class="lcite"><b>Source:</b> ${esc(info.citation)}</p>` : ""}
+    ${urls.length ? `<p>${urls.map((u, i) => `<a class="dl" href="${esc(u)}" target="_blank" rel="noopener">${i ? "Other reference ↗" : "Public page ↗"}</a>`).join(" ")}</p>` : ""}`;
+  $("linepanel").hidden = false;
+}
+function closeLinePanel() { $("linepanel").hidden = true; }
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".linebtn");
+  if (b) { openLinePanel(b.dataset.line); return; }
+  if (e.target.id === "linepanel" || e.target.closest("#lineclose")) closeLinePanel();
+});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLinePanel(); });
+
+// ---- Protocols tab: every protocol in the data, with its document if we have one ----
+function renderProtocolLibrary() {
+  const rows = {};
+  sigSamples.forEach((p) => {
+    const r = (rows[p.protocol] ||= { code: p.protocol, cts: new Set(), labs: new Set(), lines: new Set(), n: 0 });
+    r.n++; r.cts.add(p.cell_type); r.labs.add(p.lab); if (!/^unk/.test(p.line)) r.lines.add(p.line);
+  });
+  const numv = (x) => (parseInt(x, 10) || 1e9);
+  const list = Object.values(rows).sort((a, b) => numv(a.code) - numv(b.code) || String(a.code).localeCompare(b.code));
+  const withDoc = list.filter((r) => protoDoc(r.code)).length;
+  const named = list.filter((r) => protoInfo(r.code) && protoInfo(r.code).name).length;
+  const cell = (r) => {
+    const doc = protoDoc(r.code), info = protoInfo(r.code) || {};
+    if (info.kind === "source") return `<div class="prod muted">${esc(info.kindnote || "not a differentiation protocol")}</div>` +
+      (doc ? `<a class="dl" href="${esc(doc)}" target="_blank" rel="noopener">Reference ↗</a>` : "");
+    if (info.kind === "product") {
+      const bits = [`<b>${esc(info.product || info.name)}</b>`,
+                    info.cat ? `Cat# ${esc(info.cat)}` : "", esc(info.vendor || "")].filter(Boolean);
+      return `<div class="prod">${bits.join("<br>")}</div>` +
+             (doc ? `<a class="dl" href="${esc(doc)}" target="_blank" rel="noopener">Vendor ↗</a>` : "");
+    }
+    if (!doc) return `<span class="muted">not linked yet</span>`;
+    const file = protoIsFile(r.code);
+    return `<a class="dl" href="${esc(doc)}" ${file ? `download` : `target="_blank" rel="noopener"`}>${file ? "Download PDF" : "Open link ↗"}</a>`
+      + (file && info.url ? ` <a href="${esc(info.url)}" target="_blank" rel="noopener">source ↗</a>` : "");
+  };
+  $("plibout").innerHTML = `
+    <div class="card">
+      <h2>Protocols</h2>
+      ${list.some((r) => protoIsMock(r.code)) ? `<p class="hint"><span class="mockwarn">placeholder types</span></p>` : ""}
+      <p class="hint">Every protocol code that appears in the Zoo samples. <b>${named}</b> of <b>${list.length}</b> have a name,
+      <b>${withDoc}</b> have a reference or document attached, and
+      <b>${list.filter((r) => protoKind(r.code) === "product").length}</b> are purchasable cell products rather than protocols.</p>
+      <div class="flow"><table>
+        <thead><tr><th>Protocol</th><th>Type</th><th>Cell type(s)</th><th class="num">Samples</th><th class="num">Lines</th><th class="num">Labs</th><th>Document</th></tr></thead>
+        <tbody>${list.map((r) => {
+          const info = protoInfo(r.code), t = protoType(r.code);
+          const cts = [...r.cts].sort(ctSort);
+          return `<tr>
+            <td><b>${esc(protoName(r.code))}</b>${info && info.name ? ` <span class="muted">p${esc(r.code)}</span>` : ""}
+              ${info && info.note ? `<div class="range">${esc(info.note)}</div>` : ""}</td>
+            <td>${t === NOTYPE ? `<span class="muted">–</span>` : esc(typeName(t))}</td>
+            <td>${cts.map((c) => `<span class="ctcell">${sw(c)}${esc(ctName(c))}</span>`).join(" ")}</td>
+            <td class="num">${r.n}</td><td class="num">${r.lines.size || "–"}</td><td class="num">${r.labs.size}</td>
+            <td>${cell(r)}</td></tr>`;
+        }).join("")}</tbody>
+      </table></div>
+    </div>`;
+}
+
+// ---- gene x protocol: one bar per protocol, grouped by cell type (no side list) ----
+let logScaleP = false;
+function showByProtocol(name, missing) {
+  const i = geneIndex.get(String(name).toUpperCase()), g = Z.genes[i];
+  const pts = pointsFor(i);
+  const cts = sigCts.filter((c) => active.has(c) && pts.some((p) => p.cell_type === c));
+  const numv = (x) => (x === "na" || x == null ? 1e9 : parseInt(x, 10) || 1e9);
+  const bars = [];
+  cts.forEach((c) => {
+    const byProt = {};
+    pts.filter((p) => p.cell_type === c).forEach((p) => (byProt[p.protocol] ||= []).push(p));
+    Object.keys(byProt).sort((a, b) => numv(a) - numv(b) || String(a).localeCompare(b)).forEach((prot) => {
+      const a = byProt[prot];
+      bars.push({ ct: c, prot, a, n: a.length, m: mean(a),
+        lo: Math.min(...a.map((p) => p.v)), hi: Math.max(...a.map((p) => p.v)) });
+    });
+  });
+  const typesPresent = [...new Set(bars.map((b) => protoType(b.prot)))]
+    .sort((a, b) => (a === NOTYPE) - (b === NOTYPE) || typeName(a).localeCompare(typeName(b)));
+  const haveTypes = typesPresent.some((t) => t !== NOTYPE);
+  if (activeTypes === null) activeTypes = new Set(typesPresent);
+  typesPresent.forEach((t) => { if (!activeTypes.has(t) && !activeTypeTouched) activeTypes.add(t); });
+  const shown = haveTypes ? bars.filter((b) => activeTypes.has(protoType(b.prot))) : bars;
+  const anyMock = bars.some((b) => protoIsMock(b.prot));
+  const typeBar = haveTypes ? `<div class="toolbar ptypes" id="ptypes"><span class="lbl">Protocol type</span>` +
+      typesPresent.map((t) => `<button class="tog" type="button" data-pt="${esc(t)}" aria-pressed="${activeTypes.has(t)}">${esc(typeName(t))}</button>`).join("") +
+      `<span class="sep"></span><button class="quick" data-pq="all">All</button><button class="quick" data-pq="none">Clear</button>` +
+      (anyMock ? `<span class="mockwarn" title="These type labels are placeholders in data/protocols.js, not the real protocol types">placeholder types</span>` : "") + `</div>`
+    : `<p class="hint">Protocol types will appear here as a filter once <code>data/protocols.js</code> gives each protocol a <code>type</code>.</p>`;
+  const extra = "";
+  $("presult").innerHTML = `
+    <div class="card">
+      <div><div class="genehead"><h2>${esc(g.gene)}</h2><span class="loc">${esc(g.type.replace("_", " "))} · ${g.chrom}:${g.tss.toLocaleString()} (${g.strand} strand)</span></div>
+      <div class="links">${links(g)}<button class="dl" id="dlProt" type="button">Download CSV</button></div>
+      ${missingNote(missing)}${extra}</div>
+      <p class="summary"><b>${shown.length}</b>${shown.length !== bars.length ? ` of ${bars.length}` : ""} protocol groups across <b>${cts.length}</b> cell type${cts.length === 1 ? "" : "s"}.</p>
+    </div>
+    <div class="card">
+      <div class="cardhead chead"><h2>${esc(g.gene)} by protocol</h2>${typeBar}</div>
+      <p class="hint">Protocols are in numerical order, not ranked.</p>
+      <div class="chartwrap" id="pchart"></div>
+      <div class="legend"><span>Bar = protocol mean</span><span>Dot = one sample</span><label style="margin-left:auto;display:inline-flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="logToggleP" ${logScaleP ? "checked" : ""}> Log scale</label></div>
+    </div>`;
+  $("dlProt").addEventListener("click", () => download(`iPSCZoo_${g.gene}_by_protocol.csv`,
+    [["gene", "cell_type", "protocol", "protocol_type", "n_samples", "mean_TPM", "min_TPM", "max_TPM"],
+     ...shown.map((b) => [g.gene, b.ct, "p" + b.prot, protoType(b.prot) === NOTYPE ? "" : protoType(b.prot), b.n, b.m, b.lo, b.hi])]));
+  $("logToggleP").addEventListener("change", (e) => { logScaleP = e.target.checked; keepScroll(() => drawProtocolChart(shown)); });
+  if ($("ptypes")) $("ptypes").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    activeTypeTouched = true;
+    if (b.dataset.pt) { activeTypes.has(b.dataset.pt) ? activeTypes.delete(b.dataset.pt) : activeTypes.add(b.dataset.pt); }
+    else if (b.dataset.pq === "all") activeTypes = new Set(typesPresent);
+    else if (b.dataset.pq === "none") activeTypes = new Set();
+    keepScroll(() => showByProtocol(name, missing));
+  });
+  drawProtocolChart(shown);
+}
+
+function drawProtocolChart(bars) {
+  const el = $("pchart");
+  if (!bars.length) { el.innerHTML = `<p class="hint">Nothing to show for the chosen cell types and protocol types.</p>`; return; }
+  const maxLab = Math.max(...bars.map((b) => Math.min(protoName(b.prot).length, 18)), 3);
+  const m = { t: 14, r: 10, b: Math.round(Math.min(170, 56 + maxLab * 5.6)), l: 56 };
+  const minBar = 42;
+  const W = Math.max(el.clientWidth || 600, m.l + m.r + bars.length * minBar);
+  const H = 380 + m.b, iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const tf = (v) => logScaleP ? Math.log10(v + 1) : v;
+  const top = Math.max(...bars.map((b) => b.hi), 0.001);
+  const ymax = logScaleP ? tf(10 ** Math.max(1, Math.ceil(Math.log10(top + 1)))) : niceMax(top);
+  const y = (v) => m.t + ih - (tf(v) / ymax) * ih;
+  const bw = iw / bars.length;
+  const ticks = logScaleP
+    ? [0, ...Array.from({ length: Math.round(ymax) + 1 }, (_, k) => 10 ** k).filter((t) => tf(t) <= ymax + 1e-9)]
+    : [0, ymax / 4, ymax / 2, (3 * ymax) / 4, ymax];
+  let s = `<svg width="${W}" height="${H}" role="img" aria-label="Expression by protocol, grouped by cell type">`;
+  // alternating background per cell-type group
+  let k0 = 0, gi = 0;
+  const groups = [];
+  bars.forEach((b, k) => {
+    if (k === bars.length - 1 || bars[k + 1].ct !== b.ct) { groups.push({ ct: b.ct, a: k0, b: k }); k0 = k + 1; }
+  });
+  groups.forEach((gp, j) => {
+    if (j % 2 === 0) s += `<rect class="colbg" x="${m.l + gp.a * bw + 1}" y="${m.t}" width="${(gp.b - gp.a + 1) * bw - 2}" height="${ih}" rx="6" opacity=".55"/>`;
+  });
+  ticks.forEach((t) => { s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}"/><text class="muted" x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${logScaleP ? t.toLocaleString() : tickFmt(t)}</text>`; });
+  s += `<line class="baseline" x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}"/>`;
+  s += `<text class="muted" transform="translate(13 ${m.t + ih / 2}) rotate(-90)" text-anchor="middle">${logScaleP ? "TPM (log scale)" : "TPM"}</text>`;
+  const marks = [];
+  bars.forEach((b, k) => {
+    const cx = m.l + bw * (k + 0.5), w = Math.min(bw * 0.62, 30);
+    s += `<rect class="pbar" x="${cx - w / 2}" y="${y(b.m)}" width="${w}" height="${Math.max(1, y(0) - y(b.m))}" rx="2" style="fill:${ctColor(b.ct)}" opacity=".45"/>`;
+    b.a.forEach((p) => {
+      const jit = b.n > 1 ? ((hash(p.sample) % 1000) / 1000 - 0.5) * w * 0.9 : 0;
+      marks.push({ x: cx + jit, y: y(p.v), p });
+    });
+    const plab = protoName(b.prot), doc = protoDoc(b.prot);
+    const short = esc(plab.length > 18 ? plab.slice(0, 17) + "…" : plab);
+    const txt = `<text class="${doc ? "plink" : "muted"}" x="${cx}" y="${H - m.b + 16}" text-anchor="end" transform="rotate(-45 ${cx} ${H - m.b + 16})">${short}${doc ? " ↗" : ""}</text>`;
+    s += doc ? `<a href="${esc(doc)}" target="_blank" rel="noopener">${txt}</a>` : txt;
+    s += `<rect class="phit" data-k="${k}" x="${cx - bw / 2}" y="${m.t}" width="${bw}" height="${ih}" fill="transparent"/>`;
+  });
+  marks.forEach((d) => { s += `<circle class="dot" cx="${d.x}" cy="${d.y}" r="4" style="fill:${ctColor(d.p.cell_type)}"/>`; });
+  // cell-type label under each group
+  groups.forEach((gp) => {
+    const x1 = m.l + gp.a * bw + 3, x2 = m.l + (gp.b + 1) * bw - 3, cx = (x1 + x2) / 2;
+    s += `<line x1="${x1}" x2="${x2}" y1="${H - 30}" y2="${H - 30}" stroke="${ctColor(gp.ct)}" stroke-width="3" stroke-linecap="round"/>`;
+    const full = ctName(gp.ct).replace(" (control)", ""), wide = x2 - x1;
+    const lbl = wide > full.length * 7.2 ? full : gp.ct;
+    s += `<text x="${cx}" y="${H - 12}" text-anchor="middle" style="fill:var(--text-primary)">${esc(lbl)}</text>`;
+  });
+  el.innerHTML = s + "</svg>";
+  el.querySelectorAll(".phit").forEach((h) => {
+    const b = bars[+h.dataset.k];
+    const lines = [...new Set(b.a.map((p) => lineLabel(p.line)))].join(", ");
+    const labs = [...new Set(b.a.map((p) => "lab" + p.lab))].join(", ");
+    const pi = protoInfo(b.prot);
+    attachTip(h, () => `<b>${sw(b.ct)}${esc(ctName(b.ct))} · ${esc(protoFull(b.prot))}</b>
+      ${pi && pi.note ? `<div class="n">${esc(pi.note)}</div>` : ""}
+      ${pi && pi.url ? `<div class="n"><a href="${esc(pi.url)}" target="_blank" rel="noopener">protocol ↗</a></div>` : ""}
+      <div class="r"><span>Mean TPM</span><span>${fmt(b.m)}</span></div>
+      <div class="r"><span>Samples</span><span>${b.n}</span></div>
+      ${b.n > 1 ? `<div class="r"><span>Range</span><span>${fmt(b.lo)}–${fmt(b.hi)}</span></div>` : ""}
+      <div class="r"><span>Lines</span><span>${lines}</span></div>
+      <div class="r"><span>Labs</span><span>${labs}</span></div>`);
+  });
+}
+
+
+// ---- several genes x protocol: heatmap, each gene row scaled to its own max ----
+function compareByProtocol(names, missing) {
+  const cts = sigCts.filter((c) => active.has(c));
+  const numv = (x) => (parseInt(x, 10) || 1e9);
+  // columns = every cell type + protocol pair present in the chosen cell types
+  const colMap = {};
+  sigSamples.forEach((p) => {
+    if (!active.has(p.cell_type)) return;
+    const k = p.cell_type + "|" + p.protocol;
+    (colMap[k] ||= { ct: p.cell_type, prot: p.protocol, idx: [] }).idx.push(p);
+  });
+  let cols = Object.values(colMap).sort((a, b) =>
+    ctSort(a.ct, b.ct) || numv(a.prot) - numv(b.prot) || String(a.prot).localeCompare(b.prot));
+  const typesPresent = [...new Set(cols.map((c) => protoType(c.prot)))]
+    .sort((a, b) => (a === NOTYPE) - (b === NOTYPE) || typeName(a).localeCompare(typeName(b)));
+  const haveTypes = typesPresent.some((t) => t !== NOTYPE);
+  if (activeTypes === null) activeTypes = new Set(typesPresent);
+  if (!activeTypeTouched) typesPresent.forEach((t) => activeTypes.add(t));
+  if (haveTypes) cols = cols.filter((c) => activeTypes.has(protoType(c.prot)));
+  const anyMock = cols.some((c) => protoIsMock(c.prot));
+  const typeBar = haveTypes ? `<div class="toolbar ptypes" id="ptypesC"><span class="lbl">Protocol type</span>` +
+      typesPresent.map((t) => `<button class="tog" type="button" data-pt="${esc(t)}" aria-pressed="${activeTypes.has(t)}">${esc(typeName(t))}</button>`).join("") +
+      `<span class="sep"></span><button class="quick" data-pq="all">All</button><button class="quick" data-pq="none">Clear</button>` +
+      (anyMock ? `<span class="mockwarn" title="Placeholder types in data/protocols.js, not the real protocol types">placeholder types</span>` : "") + `</div>` : "";
+
+  const rows = names.map((n) => {
+    const i = geneIndex.get(n.toUpperCase());
+    const vals = geneVals(i);
+    const byName = {}; sigSamples.forEach((p, j) => (byName[p.sample] = vals[j]));
+    const cells = cols.map((c) => {
+      const v = c.idx.map((p) => byName[p.sample]);
+      return { m: v.reduce((a, b) => a + b, 0) / v.length, n: v.length,
+               lo: Math.min(...v), hi: Math.max(...v) };
+    });
+    return { g: Z.genes[i], cells, max: Math.max(...cells.map((c) => c.m), 1e-6) };
+  });
+  const textOn = (t) => t > 0.55 ? "#fff" : "var(--text-primary)";
+  // cell-type header spans
+  const spans = []; let k0 = 0;
+  cols.forEach((c, k) => { if (k === cols.length - 1 || cols[k + 1].ct !== c.ct) { spans.push({ ct: c.ct, n: k - k0 + 1 }); k0 = k + 1; } });
+
+  $("presult").innerHTML = `
+    <div class="card">
+      <div class="cardhead"><h2>Comparing ${names.length} genes by protocol</h2><button class="dl" id="dlCmpP" type="button">Download CSV</button></div>
+      <p class="hint">Mean TPM. Shading is relative within each gene (row).</p>
+      ${missingNote(missing)}
+    </div>
+    <div class="card">
+      <div class="cardhead chead"><h2>Protocol pattern</h2>${typeBar}</div>
+      ${cols.length ? `<div class="heat scroll"><table>
+        <thead>
+          <tr><th rowspan="2">Gene</th>${spans.map((sp) => `<th colspan="${sp.n}" class="ctspan"><span class="ctcell">${sw(sp.ct)}${esc(ctName(sp.ct))}</span></th>`).join("")}</tr>
+          <tr>${cols.map((c) => `<th class="pcol" title="${esc(protoFull(c.prot))}">${esc(protoName(c.prot).length > 10 ? "p" + c.prot : protoName(c.prot))}<div class="range">n=${c.idx.length}</div></th>`).join("")}</tr>
+        </thead>
+        <tbody>${rows.map((r) => `<tr><td class="g"><button data-g="${esc(r.g.gene)}" title="Open ${esc(r.g.gene)} on its own">${esc(r.g.gene)}</button></td>${
+          r.cells.map((c, ci) => {
+            const t = c.m / r.max;
+            return `<td class="hc" style="background:rgba(var(--heat),${(0.06 + 0.94 * t).toFixed(3)});color:${textOn(t)}" data-tip="${esc(r.g.gene)} · ${esc(ctName(cols[ci].ct))} · ${esc(protoFull(cols[ci].prot))}|${fmt(c.m)}|${c.n}|${fmt(c.lo)}–${fmt(c.hi)}">${fmt(c.m)}</td>`;
+          }).join("")}</tr>`).join("")}</tbody>
+      </table></div>
+      <div class="scale"><span>lower</span><i></i><span>higher (within the gene)</span></div>`
+      : `<p class="hint">Nothing to show for the chosen cell types and protocol types.</p>`}
+    </div>`;
+  $("presult").querySelectorAll(".g button").forEach((b) => b.addEventListener("click", () => {
+    genes = [b.dataset.g]; renderTokens(); render();
+  }));
+  if ($("ptypesC")) $("ptypesC").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    activeTypeTouched = true;
+    if (b.dataset.pt) { activeTypes.has(b.dataset.pt) ? activeTypes.delete(b.dataset.pt) : activeTypes.add(b.dataset.pt); }
+    else if (b.dataset.pq === "all") activeTypes = new Set(typesPresent);
+    else if (b.dataset.pq === "none") activeTypes = new Set();
+    keepScroll(() => compareByProtocol(names, missing));
+  });
+  $("presult").querySelectorAll(".hc[data-tip]").forEach((td) => {
+    const [head, m, n, range] = td.dataset.tip.split("|");
+    attachTip(td, () => `<b>${esc(head)}</b>
+      <div class="r"><span>Mean TPM</span><span>${esc(m)}</span></div>
+      <div class="r"><span>Samples</span><span>${esc(n)}</span></div>
+      ${+n > 1 ? `<div class="r"><span>Range</span><span>${esc(range)}</span></div>` : ""}`);
+  });
+  $("dlCmpP").addEventListener("click", () => download("iPSCZoo_genes_by_protocol_meanTPM.csv",
+    [["gene", "cell_type", "protocol", "protocol_type", "n_samples", "mean_TPM", "min_TPM", "max_TPM"],
+     ...rows.flatMap((r) => r.cells.map((c, ci) => [r.g.gene, cols[ci].ct, "p" + cols[ci].prot,
+       protoType(cols[ci].prot) === NOTYPE ? "" : protoType(cols[ci].prot), c.n, c.m, c.lo, c.hi]))]));
+}
+
+// ---- several genes: heatmap of cell-type means, each row scaled to its max ----
+function compareGenes(names, missing) {
+  const shownCts = sigCts.filter((c) => active.has(c));
+  const rows = names.map((n) => {
+    const i = geneIndex.get(n.toUpperCase()), groups = groupBy(pointsFor(i));
+    const vals = shownCts.map((c) => (groups[c] ? mean(groups[c]) : null));
+    return { g: Z.genes[i], vals, max: Math.max(...vals.filter((v) => v !== null), 1e-6) };
+  });
+  const textOn = (t) => t > 0.55 ? "#fff" : "var(--text-primary)";
+  $("result").innerHTML = `
+    <div class="card">
+      <div class="cardhead"><h2>Comparing ${names.length} genes</h2><button class="dl" id="dlCmp" type="button">Download CSV</button></div>
+      <p class="hint">Mean TPM. Shading is relative within each gene (row).</p>
+      ${missingNote(missing)}
+      <div class="heat"><table>
+        <thead><tr><th>Gene</th>${shownCts.map((c) => `<th>${sw(c)}${esc(c)}</th>`).join("")}</tr></thead>
+        <tbody>${rows.map((r, ri) => `<tr><td class="g"><button data-g="${esc(r.g.gene)}" title="Open ${esc(r.g.gene)} on its own">${esc(r.g.gene)}</button></td>${r.vals.map((v, ci) => {
+          if (v === null) return `<td class="hc">–</td>`;
+          const t = v / r.max;
+          return `<td class="hc" data-r="${ri}" data-c="${ci}" style="background:rgba(var(--heat),${(0.06 + 0.94 * t).toFixed(3)});color:${textOn(t)}">${fmt(v)}</td>`;
+        }).join("")}</tr>`).join("")}</tbody>
+      </table></div>
+      <div class="scale"><span>lower</span><i></i><span>higher (within the gene)</span></div>
+    </div>`;
+  $("result").querySelectorAll(".g button").forEach((b) => b.addEventListener("click", () => run(b.dataset.g)));
+  $("dlCmp").addEventListener("click", () => download("iPSCZoo_compare_meanTPM.csv",
+    [["gene", ...shownCts.map((c) => c + "_mean_TPM")], ...rows.map((r) => [r.g.gene, ...r.vals.map((v) => v === null ? "" : +v.toFixed(3))])]));
+  $("result").querySelectorAll("td.hc[data-r]").forEach((td) => {
+    const r = rows[+td.dataset.r], c = shownCts[+td.dataset.c], v = r.vals[+td.dataset.c];
+    attachTip(td, () => `<b>${sw(c)}${esc(ctName(c))}</b>
+      <div class="r"><span>Gene</span><span>${esc(r.g.gene)}</span></div>
+      <div class="r"><span>Mean TPM</span><span>${fmt(v)}</span></div>
+      <div class="r"><span>Of gene's max</span><span>${Math.round((v / r.max) * 100)}%</span></div>`);
+  });
+}
+
+// ---- tooltip ----
+const tip = $("tip");
+function attachTip(node, html) {
+  node.addEventListener("mouseenter", () => { tip.innerHTML = html(); tip.style.display = "block"; });
+  node.addEventListener("mousemove", (e) => {
+    const r = tip.getBoundingClientRect();
+    let x = e.pageX + 14;
+    if (x + r.width > window.scrollX + innerWidth - 8) x = e.pageX - r.width - 14;
+    tip.style.left = x + "px"; tip.style.top = (e.pageY + 14) + "px";
+  });
+  node.addEventListener("mouseleave", () => { tip.style.display = "none"; });
+}
+function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); for (const k of [1, 1.2, 1.6, 2, 3, 4, 6, 8, 10]) if (k * p >= v * 1.05) return k * p; return 10 * p; }
+const tickFmt = (t) => t === 0 ? "0" : Number.isInteger(t) ? String(t) : fmt(t);
+function hash(s) { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h; }
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if ($("chart")) render(); }, 150); });
+
+// ---- samples tab ----
+(function samplesTab() {
+  const S = Z.samples, cts = [...new Set(S.map((s) => s.cell_type))].sort(ctSort);
+  const count = (c) => S.filter((s) => s.cell_type === c).length;
+  const cmax = Math.max(...cts.map(count));
+  $("cts").innerHTML = cts.map((c) => `<button data-c="${c}">${sw(c)}${esc(ctName(c))}</button>
+    <div class="b" style="width:${(count(c) / cmax) * 100}%;background:${ctColor(c)}"></div><div class="c">${count(c)}</div>`).join("");
+  $("cts").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { $("f-ct").value = b.dataset.c; render(); } });
+  $("f-ct").innerHTML = `<option value="">All cell types</option>` + cts.map((c) => `<option value="${c}">${esc(ctName(c))} (${count(c)})</option>`).join("");
+  function render() {
+    const ct = $("f-ct").value, t = $("f-text").value.trim().toLowerCase();
+    const rows = S.filter((s) => (!ct || s.cell_type === ct) && (!t || s.sample.toLowerCase().includes(t)));
+    $("f-count").textContent = `${rows.length} shown`;
+    $("sample-table").innerHTML = `<thead><tr><th>Sample</th><th>Cell type</th><th>Protocol</th><th>Lab</th><th>Line</th><th class="num">Batch</th></tr></thead><tbody>` +
+      rows.map((s) => `<tr><td>${esc(s.sample)}</td><td><span class="ctcell">${sw(s.cell_type)}${esc(ctName(s.cell_type))}</span></td><td>${s.protocol ? "p" + esc(s.protocol) : "–"}</td><td>${s.lab ? "lab" + esc(s.lab) : "–"}</td><td>${lineLink(s.line)}</td><td class="num">${esc(s.batch ?? "–")}</td></tr>`).join("") + "</tbody>";
+  }
+  ["f-ct", "f-text"].forEach((id) => $(id).addEventListener("input", render));
+  render();
+})();
+$("n-sig").textContent = Z.expr.samples.length;
+$("built").textContent = `Data version ${Z.built} · ${Z.expr.samples.length} samples · ${Z.genes.length.toLocaleString()} genes.`;
+$("cite").innerHTML = (PUBLIC && CFG.citation
+    ? `<p>If you use this resource, please cite:</p><div class="cite">${esc(CFG.citation)}${CFG.paperUrl ? ` <a href="${esc(CFG.paperUrl)}" target="_blank" rel="noopener">${esc(CFG.paperUrl)}</a>` : ""}</div>`
+    : `<p>Unpublished data, shared with lab members only. Please do not share the site or the data outside the lab. Citation details will be added at publication.</p>`) +
+  `<p><a href="data/iPSCZoo_RNA_TPM.csv.gz" download>Download the full expression table</a> (TPM, genes × samples, CSV, gzip)${CFG.dataUrl ? ` · <a href="${esc(CFG.dataUrl)}" target="_blank" rel="noopener">Raw data</a>` : ""}.</p>` +
+  (CFG.contact ? `<p>Questions: <a href="mailto:${esc(CFG.contact)}">${esc(CFG.contact)}</a></p>` : "");
+$("footer").textContent = `iPSC Zoo · Corces Lab, Gladstone Institutes · data version ${Z.built}` + (PUBLIC ? "" : " · unpublished, lab only");
+
+
+
+// ---- "Acknowledgements" (About tab) ----
+(function () {
+  const A = (CFG && CFG.acknowledge) || {};
+  if (A.show === false) { const h = $("about-ack"); if (h) h.closest(".card").remove(); return; }
+  const nLabs = new Set(sigSamples.map((s) => s.lab)).size;
+  const nLines = new Set(sigSamples.map((s) => s.line).filter((l) => !/^unk/.test(l))).size;
+  const team = (A.team || []).filter((t) => t && t.name);
+  const names = A.labNames || {};
+  function labRows() {
+    const by = {};
+    sigSamples.forEach((p) => {
+      const r = (by[p.lab] ||= { lab: p.lab, cts: new Set(), prots: new Set(), lines: new Set(), n: 0 });
+      r.n++; r.cts.add(p.cell_type); r.prots.add(p.protocol);
+      if (!/^unk/.test(p.line)) r.lines.add(p.line);
+    });
+    return Object.values(by)
+      .sort((a, b) => (parseInt(a.lab, 10) || 999) - (parseInt(b.lab, 10) || 999))
+      .map((r) => `<tr>
+        <td><b>${esc(names[r.lab] || "lab" + r.lab)}</b>${names[r.lab] ? ` <span class="muted">lab${esc(r.lab)}</span>` : ""}</td>
+        <td>${[...r.cts].sort(ctSort).map((c) => `<span class="ctcell">${sw(c)}${esc(ctName(c))}</span>`).join(" ")}</td>
+        <td class="num">${r.prots.size}</td><td class="num">${r.lines.size || "–"}</td><td class="num">${r.n}</td>
+      </tr>`).join("");
+  }
+  $("ack").innerHTML = `
+    ${team.length ? `<p>The iPSC Zoo is generated and maintained by:</p>
+      <ul>${team.map((t) => `<li><b>${esc(t.name)}</b>${t.role ? ` — ${esc(t.role)}` : ""}</li>`).join("")}</ul>`
+      : `<p>The iPSC Zoo is generated and maintained by the <b>Corces Lab</b>, Gladstone Institutes.</p>`}
+    <p><b>${nLabs}</b> labs contributed the cells behind these <b>${sigSamples.length}</b> samples, using
+    <b>${nLines}</b> iPSC lines and <b>${new Set(sigSamples.map((s) => s.protocol)).size}</b> protocols. The collection
+    depends on the material these groups contributed.</p>
+    ${A.labs ? `<p>${esc(A.labs)}</p>` : ""}
+    <div class="flow"><table id="labtbl">
+      <thead><tr><th>Lab</th><th>Contributed</th><th class="num">Protocols</th><th class="num">Lines</th><th class="num">Samples</th></tr></thead>
+      <tbody>${labRows()}</tbody>
+    </table></div>
+    <p class="hint">Labs are shown as codes until each one has agreed to be named; names go in
+    <code>config.js</code> (<code>acknowledge.labNames</code>).</p>
+    ${A.funding ? `<p><b>Funding:</b> ${esc(A.funding)}</p>` : ""}
+    ${A.site ? `<p><b>This site:</b> ${esc(A.site)}</p>` : ""}
+    ${A.note ? `<p>${esc(A.note)}</p>` : ""}
+    <p class="hint">Please contact the Zoo team with any correction or omission.</p>`;
+})();
+
+// ---- "Contribute samples" (About tab) ----
+(function () {
+  const C = (CFG && CFG.contribute) || {};
+  if (C.show === false) { const h = $("about-contribute"); if (h) h.closest(".card").remove(); return; }
+  const to = C.contact || "", lead = C.lead || "the iPSC Zoo team";
+  const subject = encodeURIComponent("iPSC Zoo - sample contribution");
+  const body = encodeURIComponent(
+    "Hello " + (C.lead || "") + ",\n\nI would like to contribute samples to the iPSC Zoo.\n\n" +
+    "Cell type(s):\nDifferentiation protocol (name + reference/PDF):\nProtocol type (directed / conversion / other):\n" +
+    "iPSC line(s):\nNumber of samples / replicates:\nRNA already extracted? (yes/no):\nLab / PI:\nContact:\n\nThank you.");
+  $("contrib").innerHTML = `
+    <p>The collection expands through contributions from other laboratories. Cell types not yet represented, and
+    alternative protocols for cell types already present, are both of interest.</p>
+    <p><b>Required with each contribution</b>, as these fields define how a sample is reported:</p>
+    <ul class="tight">
+      <li><b>Cell type and differentiation protocol</b>, with a written protocol or published reference, so the
+        protocol can be cited on the Protocols tab.</li>
+      <li><b>Protocol type</b> — directed differentiation, direct conversion, transcription-factor induction, or other.</li>
+      <li><b>iPSC line for every sample.</b> Expression differs between lines on the same protocol, so lines are
+        reported separately.</li>
+      <li><b>Replicate number.</b> Single samples are accepted and displayed, with their sample count shown.</li>
+      <li><b>Contributing laboratory</b>, for the lab identifier.</li>
+    </ul>
+    <p class="hint">Protocols, laboratories and iPSC lines are displayed as codes. Identities are held by the Zoo team
+    and are not shown on this site.</p>
+    ${C.note ? `<p>${esc(C.note)}</p>` : ""}
+    ${C.uploadUrl ? `<p><b>Sample sheet, protocol and any data files</b> go in the Zoo folder:</p>
+        <p><a class="dl big" href="${esc(C.uploadUrl)}" target="_blank" rel="noopener">${esc(C.uploadLabel || "Upload files here ↗")}</a>
+        ${C.formUrl ? ` <a href="${esc(C.formUrl)}" target="_blank" rel="noopener">sample information form ↗</a>` : ""}</p>
+        <p class="hint">Sequencing files may exceed browser upload limits; contact the Zoo team to arrange a transfer.
+        Please include cell type, protocol and iPSC line in file names.</p>`
+      : `<p class="hint"><span class="mockwarn">no upload folder yet</span> Add a Drive, Dropbox or Box folder to
+         <code>config.js</code> (<code>contribute.uploadUrl</code>) and an upload button appears here. Make it a folder
+         that accepts uploads without showing other labs' files.</p>`}
+    ${to ? `<p><a class="dl" href="mailto:${esc(to)}?subject=${subject}&body=${body}">Email ${esc(lead)}</a> with any questions.</p>`
+         : `<p class="hint"><span class="mockwarn">no contact yet</span> Add <code>contribute.contact</code> to
+            <code>config.js</code> for the email button — and agree the wording above with Leah and Ryan first,
+            since it invites other labs to send samples.</p>`}`;
+})();
+
+const hm = location.hash.match(/genes?=([^&]+)/), hc = location.hash.match(/ct=([^&]*)/);
+if (hc) active = new Set(decodeURIComponent(hc[1]).split(",").filter((c) => sigCts.includes(c)));
+renderToolbar();
+const ht = location.hash.match(/tab=(\w+)/);
+if (ht && ["gene", "protocol", "plib", "samples", "about"].includes(ht[1])) {
+  const btn = document.querySelector(`nav button[data-tab="${ht[1]}"]`);
+  if (btn) {
+    document.querySelectorAll("nav button").forEach((x) => x.setAttribute("aria-selected", x === btn));
+    curTab = ht[1];
+    ["gene", "protocol", "plib", "samples", "about"].forEach((t) => { $("tab-" + t).hidden = t !== curTab; });
+    $("toolbar").hidden = !(curTab === "gene" || curTab === "protocol");
+    if (curTab === "plib") renderProtocolLibrary();
+  }
+}
+run(hm ? decodeURIComponent(hm[1]) : "TREM2");
+</script>
+</body>
+</html>
