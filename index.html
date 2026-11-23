@@ -358,45 +358,112 @@ ul.tight li:last-child { margin-bottom: 0; }
 })();
 </script>
 
-<!-- First-visit quick guide. Shows once per browser, skippable, reopen with the ? button. -->
-<div id="guide" hidden style="position:fixed;inset:0;z-index:99998;background:rgba(29,29,27,.45);
-     display:flex;align-items:center;justify-content:center;padding:20px;
-     font-family:system-ui,-apple-system,'Segoe UI',sans-serif">
-  <div style="max-width:430px;background:#fff;border-radius:10px;padding:26px 28px">
-    <h2 style="margin:0 0 4px;font-size:18px;font-weight:600;color:#1d1d1b">Quick guide</h2>
-    <p style="margin:0 0 16px;font-size:12.5px;color:#777">Bulk RNA-seq of iPSC-derived cell types, 182 samples.</p>
-    <ul style="margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.5;color:#333">
-      <li style="margin-bottom:9px"><b>Gene / cell type lookup</b> &mdash; type a gene, see its expression across cell types.</li>
-      <li style="margin-bottom:9px"><b>Gene / protocol lookup</b> &mdash; the same gene split by differentiation protocol.</li>
-      <li style="margin-bottom:9px"><b>Protocols</b> &mdash; what each protocol ID is, with paper links.</li>
-      <li style="margin-bottom:9px"><b>Samples</b> &mdash; every sample and its metadata.</li>
-      <li>Values are TPM. Any view can be downloaded as CSV.</li>
-    </ul>
-    <p style="margin:16px 0 0;font-size:12px;color:#777">Unpublished data &mdash; lab use only.</p>
-    <div style="margin-top:18px;display:flex;gap:9px;justify-content:flex-end">
-      <button id="guide-skip" style="padding:8px 14px;font-size:13px;color:#555;background:#fff;
-        border:1px solid #d0d0d0;border-radius:6px;cursor:pointer">Skip</button>
-      <button id="guide-ok" style="padding:8px 16px;font-size:13px;font-weight:600;color:#fff;
-        background:#1d1d1b;border:0;border-radius:6px;cursor:pointer">Got it</button>
-    </div>
+<!-- First-visit walkthrough: highlights parts of the page one at a time. Skippable;
+     shows once per browser; the ? button in the corner replays it. -->
+<style>
+  #tour-spot{position:absolute;z-index:99990;border-radius:8px;pointer-events:none;
+    box-shadow:0 0 0 9999px rgba(29,29,27,.55);transition:all .22s ease;display:none}
+  #tour-tip{position:absolute;z-index:99991;width:290px;background:#fff;border-radius:9px;
+    padding:16px 18px 13px;box-shadow:0 8px 28px rgba(0,0,0,.22);display:none;
+    font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+  #tour-tip h3{margin:0 0 5px;font-size:14.5px;font-weight:600;color:#1d1d1b}
+  #tour-tip p{margin:0;font-size:13px;line-height:1.5;color:#444}
+  #tour-foot{margin-top:14px;display:flex;align-items:center;gap:8px}
+  #tour-step{font-size:11.5px;color:#999;margin-right:auto}
+  #tour-tip button{font-size:12.5px;padding:6px 12px;border-radius:5px;cursor:pointer}
+  .tour-ghost{color:#666;background:#fff;border:1px solid #d5d5d5}
+  .tour-go{color:#fff;background:#1d1d1b;border:0;font-weight:600}
+  #guide-open{position:fixed;right:16px;bottom:16px;z-index:9000;width:32px;height:32px;
+    border-radius:50%;border:1px solid #d0d0d0;background:#fff;color:#555;font-size:15px;
+    line-height:1;cursor:pointer}
+</style>
+<div id="tour-spot"></div>
+<div id="tour-tip" role="dialog" aria-live="polite">
+  <h3 id="tour-title"></h3>
+  <p id="tour-text"></p>
+  <div id="tour-foot">
+    <span id="tour-step"></span>
+    <button id="tour-skip" class="tour-ghost" type="button">Skip</button>
+    <button id="tour-back" class="tour-ghost" type="button">Back</button>
+    <button id="tour-next" class="tour-go" type="button">Next</button>
   </div>
 </div>
-<button id="guide-open" title="Quick guide" style="position:fixed;right:16px;bottom:16px;z-index:9000;
-  width:32px;height:32px;border-radius:50%;border:1px solid #d0d0d0;background:#fff;color:#555;
-  font-size:15px;line-height:1;cursor:pointer">?</button>
+<button id="guide-open" title="Quick walkthrough" type="button">?</button>
 <script>
 (function () {
-  var KEY = "zooGuideSeen", g = document.getElementById("guide");
-  function show() { g.hidden = false; }
-  function hide() { g.hidden = true; try { localStorage.setItem(KEY, "1"); } catch (e) {} }
+  var KEY = "zooTourSeen", PAD = 7;
+  var STEPS = [
+    { sel: "#q", title: "Start with a gene",
+      text: "Type a gene name here. You can add more than one to compare them." },
+    { sel: 'nav[role="tablist"]', title: "Four views",
+      text: "The same gene by cell type or by differentiation protocol, plus the protocol list and every sample." },
+    { sel: "#chart", title: "Reading the plot",
+      text: "One bar per group. Values are TPM from bulk RNA-seq, so compare across samples, not between genes." },
+    { sel: "#dlGene", title: "Take the numbers with you",
+      text: "Downloads whatever you are currently looking at as a CSV." },
+    { sel: '[data-tab="about"]', title: "How it was made",
+      text: "Methods, limitations and how to cite. The data is unpublished, so keep it in the lab." }
+  ];
+  var spot = document.getElementById("tour-spot"), tip = document.getElementById("tour-tip");
+  var i = 0, live = [];
+
+  function visible(el) {
+    if (!el) return false;
+    var r = el.getBoundingClientRect();
+    return r.width > 1 && r.height > 1;
+  }
+  function place() {
+    var st = live[i], el = document.querySelector(st.sel);
+    if (!el) return stop();
+    el.scrollIntoView({ block: "center", behavior: "smooth" });
+    var r = el.getBoundingClientRect(), sx = window.scrollX, sy = window.scrollY;
+    spot.style.display = "block";
+    spot.style.left = (r.left + sx - PAD) + "px";
+    spot.style.top = (r.top + sy - PAD) + "px";
+    spot.style.width = (r.width + PAD * 2) + "px";
+    spot.style.height = (r.height + PAD * 2) + "px";
+    document.getElementById("tour-title").textContent = st.title;
+    document.getElementById("tour-text").textContent = st.text;
+    document.getElementById("tour-step").textContent = (i + 1) + " / " + live.length;
+    document.getElementById("tour-back").style.display = i ? "" : "none";
+    document.getElementById("tour-next").textContent = i === live.length - 1 ? "Done" : "Next";
+    tip.style.display = "block";
+    var tw = tip.offsetWidth, th = tip.offsetHeight;
+    var below = r.bottom + 14 + th < window.innerHeight;
+    var top = below ? r.bottom + sy + 14 : r.top + sy - th - 14;
+    var left = Math.min(Math.max(r.left + sx + r.width / 2 - tw / 2, 12), sx + window.innerWidth - tw - 12);
+    tip.style.top = Math.max(top, sy + 12) + "px";
+    tip.style.left = left + "px";
+  }
+  function stop() {
+    spot.style.display = tip.style.display = "none";
+    try { localStorage.setItem(KEY, "1"); } catch (e) {}
+    window.removeEventListener("resize", place);
+  }
+  function start() {
+    live = STEPS.filter(function (st) { return visible(document.querySelector(st.sel)); });
+    if (!live.length) return;
+    i = 0; place();
+    window.addEventListener("resize", place);
+  }
+  document.getElementById("tour-next").addEventListener("click", function () {
+    if (i === live.length - 1) return stop();
+    i++; place();
+  });
+  document.getElementById("tour-back").addEventListener("click", function () { if (i) { i--; place(); } });
+  document.getElementById("tour-skip").addEventListener("click", stop);
+  document.getElementById("guide-open").addEventListener("click", start);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") stop(); });
+
   var seen = false;
   try { seen = localStorage.getItem(KEY) === "1"; } catch (e) {}
-  if (!seen) show();
-  document.getElementById("guide-ok").addEventListener("click", hide);
-  document.getElementById("guide-skip").addEventListener("click", hide);
-  document.getElementById("guide-open").addEventListener("click", show);
-  g.addEventListener("click", function (e) { if (e.target === g) hide(); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !g.hidden) hide(); });
+  if (!seen) {
+    // wait until the password gate is gone, then run once the page has rendered
+    (function wait() {
+      if (document.getElementById("gate")) return setTimeout(wait, 250);
+      setTimeout(start, 500);
+    })();
+  }
 })();
 </script>
 
